@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.List;
 
 /** Appel synchrone vers ms-user : utilisateurs d'une zone, destinataires des alertes. */
-@FeignClient(name = "${clients.user}", contextId = "userClient")
+@FeignClient(name = "${clients.user:ms-user}", contextId = "userClient")
 public interface UserClient {
 
     @GetMapping("/api/users")

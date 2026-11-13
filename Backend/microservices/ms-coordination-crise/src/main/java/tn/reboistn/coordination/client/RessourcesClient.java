@@ -8,7 +8,7 @@ import tn.reboistn.coordination.model.TypeMoyen;
 import java.util.List;
 
 /** Appel synchrone vers ms-ressources : réserver les moyens les plus proches du feu. */
-@FeignClient(name = "${clients.ressources}", contextId = "ressourcesClient")
+@FeignClient(name = "${clients.ressources:ressources-service}", contextId = "ressourcesClient")
 public interface RessourcesClient {
 
     @PostMapping("/api/ressources/reservations")

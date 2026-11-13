@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 /** Appel synchrone vers ms-signalement : position et intensité du feu. */
-@FeignClient(name = "${clients.signalement}", contextId = "signalementClient")
+@FeignClient(name = "${clients.signalement:ms-signalement}", contextId = "signalementClient")
 public interface SignalementClient {
 
     @GetMapping("/api/signalements/{id}")
