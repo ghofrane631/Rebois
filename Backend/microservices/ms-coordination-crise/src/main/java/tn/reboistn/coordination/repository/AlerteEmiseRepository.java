@@ -12,4 +12,6 @@ public interface AlerteEmiseRepository extends JpaRepository<AlerteEmise, Long> 
     List<AlerteEmise> findByUserId(String userId);
 
     List<AlerteEmise> findByUserIdAndLue(String userId, boolean lue);
+
+    List<AlerteEmise> findByLueFalse();
 }

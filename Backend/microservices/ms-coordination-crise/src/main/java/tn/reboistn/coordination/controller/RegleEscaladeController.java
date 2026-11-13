@@ -1,45 +1,40 @@
 package tn.reboistn.coordination.controller;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.server.ResponseStatusException;
 import tn.reboistn.coordination.model.RegleEscalade;
-import tn.reboistn.coordination.repository.RegleEscaladeRepository;
+import tn.reboistn.coordination.service.EscaladeService;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/regles-escalade")
 @RequiredArgsConstructor
+@Tag(name = "Règles d'escalade", description = "Délai avant escalade d'une alerte non lue")
 public class RegleEscaladeController {
 
-    private final RegleEscaladeRepository regleRepository;
+    private final EscaladeService escaladeService;
 
     @GetMapping
+    @Operation(summary = "Lister les règles", description = "200")
     public List<RegleEscalade> lister() {
-        return regleRepository.findAll();
+        return escaladeService.regles();
     }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
+    @Operation(summary = "Créer une règle", description = "201, 400, 409 si le type a déjà une règle")
     public RegleEscalade creer(@Valid @RequestBody RegleEscalade regle) {
-        if (regleRepository.existsByTypeAlerte(regle.getTypeAlerte())) {
-            throw new ResponseStatusException(HttpStatus.CONFLICT, "Une regle existe deja pour ce type d'alerte");
-        }
-        regle.setId(null);
-        return regleRepository.save(regle);
+        return escaladeService.creerRegle(regle);
     }
 
-    /** Le type d'alerte d'une règle ne change pas : on modifie le délai, la cible et l'obligation de SMS. */
     @PutMapping("/{id}")
+    @Operation(summary = "Modifier une règle", description = "200, 400, 404")
     public RegleEscalade modifier(@PathVariable Long id, @Valid @RequestBody RegleEscalade regle) {
-        RegleEscalade existante = regleRepository.findById(id)
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Regle introuvable"));
-        existante.setDelaiMin(regle.getDelaiMin());
-        existante.setCible(regle.getCible());
-        existante.setSmsObligatoire(regle.isSmsObligatoire());
-        return regleRepository.save(existante);
+        return escaladeService.modifierRegle(id, regle);
     }
 }

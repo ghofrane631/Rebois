@@ -8,4 +8,6 @@ import java.util.List;
 public interface EscaladeRepository extends JpaRepository<Escalade, Long> {
 
     List<Escalade> findByAlerteId(Long alerteId);
+
+    boolean existsByAlerteId(Long alerteId);
 }
