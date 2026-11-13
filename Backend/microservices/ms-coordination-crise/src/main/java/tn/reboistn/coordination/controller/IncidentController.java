@@ -39,7 +39,7 @@ public class IncidentController {
                 incident,
                 chronoRepository.findByIncidentIdOrderByHeureAsc(id),
                 moyenRepository.findByIncidentId(id),
-                alerteRepository.findByIncidentId(id),
+                alerteRepository.findByIncident_Id(id),
                 bilanRepository.findById(id).orElse(null));
     }
 
@@ -128,7 +128,7 @@ public class IncidentController {
     @GetMapping("/{id}/alertes")
     public List<AlerteEmise> alertes(@PathVariable Long id) {
         trouver(id);
-        return alerteRepository.findByIncidentId(id);
+        return alerteRepository.findByIncident_Id(id);
     }
 
     // ---------- méthodes internes ----------

@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface AlerteEmiseRepository extends JpaRepository<AlerteEmise, Long> {
 
-    List<AlerteEmise> findByIncidentId(Long incidentId);
+    List<AlerteEmise> findByIncident_Id(Long incidentId);
 
     List<AlerteEmise> findByUserId(String userId);
 
