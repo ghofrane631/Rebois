@@ -1,0 +1,41 @@
+server:
+  port: ${SERVER_PORT:8086}
+
+spring:
+  application:
+    name: restauration-service
+  cloud:
+    openfeign:
+      circuitbreaker:
+        enabled: true
+  datasource:
+    url: ${DB_URL:jdbc:mysql://localhost:3306/restauration_db?createDatabaseIfNotExist=true}
+    username: ${DB_USERNAME:root}
+    password: ${DB_PASSWORD:}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+  rabbitmq:
+    host: ${RABBITMQ_HOST:localhost}
+    port: ${RABBITMQ_PORT:5672}
+    username: ${RABBITMQ_USERNAME:guest}
+    password: ${RABBITMQ_PASSWORD:guest}
+    publisher-confirm-type: correlated
+    publisher-returns: true
+
+app:
+  events:
+    exchange: forest.events
+    intervention-terminee-queue: restauration.intervention-terminee
+    intervention-terminee-routing-key: InterventionTerminee
+    zone-restauree-routing-key: ZoneRestauree
+  outbox:
+    delay: ${OUTBOX_DELAY:5000}
+
+services:
+  foret:
+    url: ${FORET_SERVICE_URL:http://localhost:8081}

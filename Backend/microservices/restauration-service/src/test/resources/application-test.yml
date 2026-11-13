@@ -1,0 +1,23 @@
+spring:
+  datasource:
+    url: "${TEST_DB_URL:jdbc:mysql://localhost:3306/restauration_test?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC}"
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: ${TEST_DB_USERNAME:root}
+    password: ${TEST_DB_PASSWORD:}
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+  rabbitmq:
+    listener:
+      simple:
+        auto-startup: false
+      direct:
+        auto-startup: false
+
+app:
+  outbox:
+    delay: 3600000
+
+services:
+  foret:
+    url: http://localhost:65535
