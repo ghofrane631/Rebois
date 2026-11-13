@@ -1,0 +1,8 @@
+﻿.idea/
+*.iml
+.vscode/
+target/
+node_modules/
+dist/
+.DS_Store
+Thumbs.db
