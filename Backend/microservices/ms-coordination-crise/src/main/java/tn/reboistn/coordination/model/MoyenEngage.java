@@ -29,6 +29,9 @@ public class MoyenEngage {
     @Column(nullable = false)
     private Long ressourceId;
 
+    @Enumerated(EnumType.STRING)
+    private TypeMoyen type;
+
     /** Référence vers la réservation faite dans ms-ressources. */
     private Long reservationId;
 

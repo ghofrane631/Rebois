@@ -32,6 +32,11 @@ public class Incident {
     @NotNull
     private Long secteurId;
 
+    /** Position du feu, utilisée pour réserver les moyens les plus proches. */
+    private Double latitude;
+
+    private Double longitude;
+
     /** Zone à alerter. */
     @NotBlank
     private String gouvernorat;
