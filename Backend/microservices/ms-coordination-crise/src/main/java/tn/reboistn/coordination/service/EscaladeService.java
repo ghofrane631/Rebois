@@ -47,16 +47,17 @@ public class EscaladeService {
         return regleRepository.save(existante);
     }
 
-    /** Règles par défaut, créées au démarrage si la table est vide. */
+    /** Règles par défaut, créées au démarrage pour chaque type d'alerte qui n'en a pas encore. */
     public void initialiserRegles() {
-        if (regleRepository.count() > 0) {
-            return;
-        }
-        regleRepository.saveAll(List.of(
-                regle(TypeAlerte.INCIDENT, 10, CibleEscalade.CASERNE_REGIONALE, true),
-                regle(TypeAlerte.VIGILANCE, 30, CibleEscalade.DIRECTION_FORETS, false),
-                regle(TypeAlerte.MOYENS_INSUFFISANTS, 5, CibleEscalade.CASERNE_REGIONALE, true)));
-        log.info("Regles d'escalade par defaut creees");
+        List.of(regle(TypeAlerte.INCIDENT, 10, CibleEscalade.CASERNE_REGIONALE, true),
+                        regle(TypeAlerte.VIGILANCE, 30, CibleEscalade.DIRECTION_FORETS, false),
+                        regle(TypeAlerte.MOYENS_INSUFFISANTS, 5, CibleEscalade.CASERNE_REGIONALE, true))
+                .stream()
+                .filter(r -> !regleRepository.existsByTypeAlerte(r.getTypeAlerte()))
+                .forEach(r -> {
+                    regleRepository.save(r);
+                    log.info("Regle d'escalade par defaut creee : {}", r.getTypeAlerte());
+                });
     }
 
     /**
