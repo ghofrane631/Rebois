@@ -1,0 +1,54 @@
+# Configuration centralisée de ressources-service, servie par le config-server.
+server:
+  port: 8085
+
+spring:
+  # Base propre au service : ressources_db (aucune table partagée)
+  datasource:
+    url: jdbc:mysql://${DB_HOST:localhost}:${DB_PORT:3306}/ressources_db?createDatabaseIfNotExist=true&serverTimezone=UTC
+    username: ${DB_USER:root}
+    password: ${DB_PASSWORD:}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+
+  rabbitmq:
+    host: ${RABBIT_HOST:localhost}
+    port: 5672
+    username: ${RABBIT_USER:guest}
+    password: ${RABBIT_PASSWORD:guest}
+    connection-timeout: 2s
+    listener:
+      simple:
+        default-requeue-rejected: false   # après les essais : dead-letter queue
+        retry:
+          enabled: true
+          max-attempts: 3
+          initial-interval: 1s
+          multiplier: 2
+
+eureka:
+  client:
+    service-url:
+      defaultZone: ${EUREKA_URL:http://localhost:8761/eureka}
+  instance:
+    prefer-ip-address: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+
+# Règles métier configurables
+ressources:
+  reserve-minimale-camions: 1
+  donnees-demo: true
+  outbox:
+    publisher-enabled: true
+    delai-ms: 2000
