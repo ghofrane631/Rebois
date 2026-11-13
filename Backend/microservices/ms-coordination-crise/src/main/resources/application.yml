@@ -13,11 +13,55 @@ spring:
     hibernate:
       ddl-auto: update
     open-in-view: false
+  rabbitmq:
+    host: ${RABBIT_HOST:localhost}
+    port: ${RABBIT_PORT:5672}
+    username: ${RABBIT_USER:guest}
+    password: ${RABBIT_PASSWORD:guest}
+    connection-timeout: 2s
+    listener:
+      simple:
+        default-requeue-rejected: false   # après les essais, le message part en dead-letter
+        retry:
+          enabled: true
+          max-attempts: 3
+          initial-interval: 1s
+          multiplier: 2
+  cloud:
+    openfeign:
+      client:
+        config:
+          default:
+            connect-timeout: 2000
+            read-timeout: 3000
 
 eureka:
   client:
     service-url:
       defaultZone: ${EUREKA_URL:http://localhost:8761/eureka}
+
+# Noms Eureka des services appelés par OpenFeign
+clients:
+  signalement: ${SIGNALEMENT_SERVICE:ms-signalement}
+  ressources: ${RESSOURCES_SERVICE:ressources-service}
+  user: ${USER_SERVICE:ms-user}
+
+# RabbitMQ : exchange commun et clés de routage (une clé par type d'événement)
+evenements:
+  exchange: ${EVENTS_EXCHANGE:ffw.events}
+  dead-letter-exchange: ${EVENTS_DLX:ffw.events.dlx}
+  cles:
+    feu-confirme: FeuConfirme
+    niveau-risque-change: NiveauRisqueChange
+    moyens-insuffisants: MoyensInsuffisants
+    utilisateur-cree: UtilisateurCree
+    intervention-terminee: InterventionTerminee
+
+# Moyens réservés automatiquement à l'ouverture d'un incident
+incident:
+  moyens-initiaux:
+    type: CAMION_CITERNE
+    nombre: 2
 
 management:
   endpoints:
