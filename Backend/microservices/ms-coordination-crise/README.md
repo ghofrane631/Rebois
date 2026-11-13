@@ -36,7 +36,7 @@ mvn spring-boot:run
 | `EVENTS_EXCHANGE` | `ffw.events` | exchange commun des événements |
 | `RESSOURCES_SERVICE` / `SIGNALEMENT_SERVICE` / `USER_SERVICE` | `ressources-service` / `ms-signalement` / `ms-user` | noms Eureka des services appelés |
 
-Tests : `mvn test` (base H2 en mémoire, utilisée uniquement pour les tests).
+Tests : `mvn test` (profil `test` : base H2 en mémoire, utilisée uniquement pour les tests).
 
 ## Modèle
 
