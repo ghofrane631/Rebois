@@ -7,7 +7,14 @@ spring:
   jpa:
     hibernate:
       ddl-auto: create-drop
+  rabbitmq:
+    listener:
+      simple:
+        auto-startup: false
 
 eureka:
   client:
     enabled: false
+
+escalade:
+  intervalle-ms: 3600000
