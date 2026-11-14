@@ -1,0 +1,7 @@
+# À placer dans config-repo/ (Config Server). Surcharge/centralise la config du service.
+spring:
+  data:
+    mongodb:
+      uri: ${MONGO_URI:mongodb://mongo-signalement:27017/signalement_db}
+  rabbitmq:
+    host: ${RABBIT_HOST:rabbitmq}
