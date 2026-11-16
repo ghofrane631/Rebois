@@ -1,0 +1,104 @@
+name: forest-fire-watch
+
+services:
+  mongo-signalement:
+    image: mongo:7
+    container_name: mongo-signalement
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_signalement_data:/data/db
+    healthcheck:
+      test: ["CMD", "mongosh", "--quiet", "--eval", "db.adminCommand('ping').ok"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    networks:
+      - ffw-net
+
+  rabbitmq:
+    image: rabbitmq:3.13-management
+    container_name: rabbitmq
+    restart: unless-stopped
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "-q", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    networks:
+      - ffw-net
+
+  keycloak:
+    image: quay.io/keycloak/keycloak:25.0
+    container_name: keycloak
+    restart: unless-stopped
+    command: ["start-dev", "--import-realm", "--http-port=8180"]
+    environment:
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin
+      KC_HOSTNAME_STRICT: "false"
+      KC_HTTP_ENABLED: "true"
+    ports:
+      - "8180:8180"
+    volumes:
+      - ./keycloak:/opt/keycloak/data/import:ro
+    networks:
+      - ffw-net
+
+  config-server:
+    build: ./config-server
+    container_name: config-server
+    environment:
+      CONFIG_REPO_PATH: file:/config-repo
+    ports:
+      - "8888:8888"
+    volumes:
+      - ./config-repo:/config-repo:ro
+    networks:
+      - ffw-net
+
+  eureka:
+    build: ./eureka
+    container_name: eureka
+    ports:
+      - "8761:8761"
+    networks:
+      - ffw-net
+
+  ms-signalement:
+    build: ./microservices/ms-signalement
+    container_name: ms-signalement
+    environment:
+      SPRING_PROFILES_ACTIVE: prod
+      CONFIG_SERVER_URL: http://config-server:8888
+      MONGO_URI: mongodb://mongo-signalement:27017/signalement_db
+      RABBIT_HOST: rabbitmq
+      EUREKA_URL: http://eureka:8761/eureka
+      KEYCLOAK_URL: http://keycloak:8180
+      OUTBOX_DELAY_MS: "5000"
+    ports:
+      - "8083:8083"
+    depends_on:
+      mongo-signalement:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_healthy
+      config-server:
+        condition: service_started
+      eureka:
+        condition: service_started
+      keycloak:
+        condition: service_started
+    networks:
+      - ffw-net
+
+volumes:
+  mongo_signalement_data:
+
+networks:
+  ffw-net:
+    driver: bridge

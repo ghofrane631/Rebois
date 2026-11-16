@@ -11,11 +11,16 @@ import org.springframework.stereotype.Component;
 @Component
 @RequiredArgsConstructor
 public class InterventionListener {
+
+    static final String CONSOMMATEUR = "signalement.intervention-terminee";
+
     private final SignalementService service;
+    private final EventDeduplicator deduplicator;
 
     @RabbitListener(queues = RabbitConfig.QUEUE_INTERVENTION)
     public void onInterventionTerminee(InterventionTermineeEvent event) {
         log.info("InterventionTerminee reçu eventId={} incidentId={}", event.eventId(), event.incidentId());
-        service.cloreApresIntervention(event.signalementId(), event.secteurId()); // idempotent
+        deduplicator.executerUneFois(event.eventId(), CONSOMMATEUR,
+                () -> service.cloreApresIntervention(event.signalementId(), event.secteurId()));
     }
 }
