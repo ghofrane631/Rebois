@@ -163,4 +163,24 @@ class CoordinationCriseApplicationTests {
                 .andExpect(jsonPath("$.length()").value(1))
                 .andExpect(jsonPath("$[0].regle.cible").value("CASERNE_REGIONALE"));
     }
+
+    @Test
+    void actuatorHealthMontreLesComposantsEtLeHealthIndicatorRessources() throws Exception {
+        mvc.perform(get("/actuator/health"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.status").value("UP"))
+                .andExpect(jsonPath("$.components.db.status").value("UP"))
+                .andExpect(jsonPath("$.components.ressources.status").value("UP"))
+                .andExpect(jsonPath("$.components.ressources.details.instances").value(0));
+    }
+
+    @Test
+    void actuatorInfoEtMetricsSontExposes() throws Exception {
+        mvc.perform(get("/actuator/info"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.app.name").value("coordination-crise"))
+                .andExpect(jsonPath("$.app.version").value("1.0.0"));
+        mvc.perform(get("/actuator/metrics/jvm.memory.used"))
+                .andExpect(status().isOk());
+    }
 }

@@ -8,12 +8,12 @@ Il gère chaque incident de bout en bout : un feu confirmé ouvre un incident, q
 
 | Élément | Valeur |
 |---|---|
-| Port | 8085 |
-| Nom Eureka | `COORDINATION-CRISE` |
+| Port | 8088 (2e instance : `SERVER_PORT=8098`) |
+| Nom Eureka | `coordination-crise` (affiché `COORDINATION-CRISE`) |
 | Base | MySQL `coordination_db` (créée au démarrage si absente) |
 | Messagerie | RabbitMQ, exchange `ffw.events` |
-| Swagger | http://localhost:8085/swagger-ui.html |
-| Santé | http://localhost:8085/actuator/health |
+| Swagger | http://localhost:8088/swagger-ui.html |
+| Santé | http://localhost:8088/actuator/health |
 
 ## Lancement
 
@@ -28,13 +28,15 @@ mvn spring-boot:run
 
 | Variable | Défaut | Rôle |
 |---|---|---|
+| `SERVER_PORT` | `8088` | port de l'instance |
 | `DB_HOST` | `localhost` | hôte MySQL |
 | `DB_USER` | `root` | utilisateur MySQL |
 | `DB_PASSWORD` | vide | mot de passe MySQL |
 | `EUREKA_URL` | `http://localhost:8761/eureka` | annuaire Eureka |
 | `RABBIT_HOST` | `localhost` | serveur RabbitMQ |
 | `EVENTS_EXCHANGE` | `ffw.events` | exchange commun des événements |
-| `RESSOURCES_SERVICE` / `SIGNALEMENT_SERVICE` / `USER_SERVICE` | `ressources-service` / `ms-signalement` / `ms-user` | noms Eureka des services appelés |
+| `RABBIT_HEALTH` | `false` | inclure RabbitMQ dans `/actuator/health` (à activer quand RabbitMQ tourne) |
+| `RESSOURCES_SERVICE` / `SIGNALEMENT_SERVICE` / `USER_SERVICE` | `ressources-service` / `signalement` / `ms-user` | noms Eureka des services appelés |
 
 Tests : `mvn test` (profil `test` : base H2 en mémoire, utilisée uniquement pour les tests).
 
@@ -107,6 +109,32 @@ Asynchrone (RabbitMQ, exchange `ffw.events`) : pour informer sans attendre de r�
 
 Chaque événement consommé est traité une seule fois (eventId enregistré). Un message en échec après
 3 essais part dans la file `coordination.dlq`.
+
+## Observabilité (Eureka et Actuator)
+
+Le service s'enregistre dans Eureka (`discovery-server`, port 8761) sous le nom `coordination-crise`,
+avec un identifiant par instance (`coordination-crise:8088`, `coordination-crise:8098`…).
+
+| Endpoint | Contenu |
+|---|---|
+| `/actuator/health` | statut global et détail des composants : `db` (MySQL), `diskSpace`, `ping`, `discoveryComposite`, `ressources` |
+| `/actuator/info` | nom, version, description, équipe (le lien de l'instance dans le dashboard Eureka y mène) |
+| `/actuator/metrics` | métriques JVM et HTTP, ex. `/actuator/metrics/http.server.requests` |
+| `/actuator/loggers` | niveau des logs, modifiable sans redémarrer |
+
+- `eureka.client.healthcheck.enabled=true` : Eureka reçoit le vrai statut de `/actuator/health`.
+  Si MySQL s'arrête, le composant `db` passe DOWN, l'instance passe **DOWN** dans le dashboard
+  et n'est plus proposée aux autres services ; elle repasse UP quand MySQL redémarre.
+- `RessourcesHealthIndicator` (HealthIndicator personnalisé, composant `ressources`) : indique si
+  `ressources-service` est disponible dans Eureka et combien d'instances. Le statut reste UP sans
+  Ressources, car le service continue de fonctionner (incidents en `MOYENS_A_AFFECTER`).
+
+Lancer deux instances :
+
+```powershell
+mvn spring-boot:run                                              # instance 1 : port 8088
+mvn spring-boot:run "-Dspring-boot.run.arguments=--server.port=8098"   # instance 2
+```
 
 ## Prochaines étapes
 
