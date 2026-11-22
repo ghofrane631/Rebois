@@ -1,0 +1,6 @@
+# Les routes et le port sont dans config-repo/api-gateway.yml, servi par le config-server.
+spring:
+  application:
+    name: api-gateway
+  config:
+    import: "configserver:${CONFIG_SERVER_URL:http://localhost:8888}"
