@@ -1,0 +1,7 @@
+# Le reste de la configuration est dans config-repo/ressources-service.yml,
+# servi par le config-server (http://localhost:8888) : à démarrer avant ce service.
+spring:
+  application:
+    name: ressources-service
+  config:
+    import: "configserver:${CONFIG_SERVER_URL:http://localhost:8888}"

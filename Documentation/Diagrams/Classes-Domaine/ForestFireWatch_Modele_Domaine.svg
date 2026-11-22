@@ -1,0 +1,192 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2600" height="1800" viewBox="0 0 2600 1800" xmlns:c2pa="http://c2pa.org/manifest"><defs><marker id="a-k" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#333"/></marker><marker id="a-b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#1C7AA8"/></marker><marker id="a-g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#2E8B14"/></marker><marker id="a-y" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#777"/></marker></defs><rect width="2600" height="1800" fill="#fff"/><text x="1300" y="56" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="36" fill="#1E2A30" font-weight="bold" text-anchor="middle">Forest Fire Watch — modèle de domaine global</text>
+<text x="1300" y="90" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="17" fill="#555" text-anchor="middle">Le cycle de vie d’un feu, de gauche à droite : détection → crise → après-feu. Chaque cadre est un contexte borné (un microservice).</text>
+<rect x="60" y="130" width="2480" height="210" rx="18" fill="#FDF0E6" stroke="#D9822B" stroke-width="3"/>
+<text x="82" y="166" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="21" fill="#B05E12" font-weight="bold">IDENTITÉ · User (service commun)</text>
+<rect x="60" y="470" width="720" height="320" rx="18" fill="#FDECEA" stroke="#C0392B" stroke-width="3"/>
+<text x="82" y="506" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="21" fill="#A12E22" font-weight="bold">DÉTECTION · Signalement</text>
+<rect x="940" y="470" width="760" height="520" rx="18" fill="#E8F1FA" stroke="#2C6FA8" stroke-width="3"/>
+<text x="962" y="506" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="21" fill="#1F5785" font-weight="bold">CRISE · Coordination de crise</text>
+<rect x="1860" y="470" width="680" height="520" rx="18" fill="#E6F5F2" stroke="#2A8A78" stroke-width="3"/>
+<text x="1882" y="506" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="21" fill="#1D6B5C" font-weight="bold">APRÈS-FEU · Restauration</text>
+<rect x="60" y="960" width="720" height="330" rx="18" fill="#FFF6DD" stroke="#C9971C" stroke-width="3"/>
+<text x="82" y="996" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="21" fill="#8A6A0E" font-weight="bold">ANTICIPATION · Risque</text>
+<rect x="940" y="1100" width="760" height="300" rx="18" fill="#EFEAF7" stroke="#6A4FA3" stroke-width="3"/>
+<text x="962" y="1136" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="21" fill="#533B85" font-weight="bold">MOYENS · Ressources</text>
+<rect x="60" y="1500" width="2480" height="210" rx="18" fill="#EAF4E6" stroke="#4E8A3A" stroke-width="3"/>
+<text x="82" y="1536" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="21" fill="#2F6B22" font-weight="bold">TERRITOIRE · Forêt (référentiel partagé)</text>
+<path d="M440 241 L1020 241" stroke="#333" stroke-width="2" fill="none" marker-end="url(#a-k)"/>
+<rect x="693.64" y="229" width="72.72" height="22" rx="4" fill="#FDF0E6"/>
+<text x="730" y="246" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="14" fill="#1E2A30" text-anchor="middle">regroupe</text>
+<text x="450" y="233" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="15" fill="#1E2A30" font-weight="bold" text-anchor="start">1</text>
+<text x="1006" y="233" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="15" fill="#1E2A30" font-weight="bold" text-anchor="end">1..*</text>
+<path d="M1340 241 L1940 241" stroke="#333" stroke-width="2" fill="none" marker-end="url(#a-k)"/>
+<rect x="1580.12" y="229" width="119.76" height="22" rx="4" fill="#FDF0E6"/>
+<text x="1640" y="246" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="14" fill="#1E2A30" text-anchor="middle">intervient sur</text>
+<text x="1350" y="233" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="15" fill="#1E2A30" font-weight="bold" text-anchor="start">1</text>
+<text x="1926" y="233" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="15" fill="#1E2A30" font-weight="bold" text-anchor="end">*</text>
+<path d="M420 622 L480 695" stroke="#333" stroke-width="2" fill="none" marker-end="url(#a-k)"/>
+<rect x="382.28" y="646.5" width="135.44" height="22" rx="4" fill="#FDECEA"/>
+<text x="450" y="663.5" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="14" fill="#1E2A30" text-anchor="middle">est illustré par</text>
+<text x="430" y="642" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="15" fill="#1E2A30" font-weight="bold" text-anchor="start">1</text>
+<text x="490" y="687" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="15" fill="#1E2A30" font-weight="bold" text-anchor="start">*</text>
+<path d="M1340 617 L1070 700" stroke="#333" stroke-width="2" fill="none" marker-end="url(#a-k)"/>
+<rect x="1164.72" y="646.5" width="80.56" height="22" rx="4" fill="#E8F1FA"/>
+<text x="1205" y="663.5" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="14" fill="#1E2A30" text-anchor="middle">déclenche</text>
+<text x="1350" y="637" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="15" fill="#1E2A30" font-weight="bold" text-anchor="start">1</text>
+<text x="1080" y="692" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="15" fill="#1E2A30" font-weight="bold" text-anchor="start">*</text>
+<path d="M1340 617 L1320 700" stroke="#333" stroke-width="2" fill="none" marker-end="url(#a-k)"/>
+<rect x="1274.04" y="646.5" width="111.92000000000002" height="22" rx="4" fill="#E8F1FA"/>
+<text x="1330" y="663.5" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="14" fill="#1E2A30" text-anchor="middle">est clos avec</text>
+<text x="1350" y="637" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="15" fill="#1E2A30" font-weight="bold" text-anchor="start">1</text>
+<text x="1330" y="692" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="15" fill="#1E2A30" font-weight="bold" text-anchor="start">0..1</text>
+<path d="M1340 617 L1570 700" stroke="#333" stroke-width="2" fill="none" marker-end="url(#a-k)"/>
+<rect x="1426.48" y="646.5" width="57.040000000000006" height="22" rx="4" fill="#E8F1FA"/>
+<text x="1455" y="663.5" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="14" fill="#1E2A30" text-anchor="middle">engage</text>
+<text x="1350" y="637" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="15" fill="#1E2A30" font-weight="bold" text-anchor="start">1</text>
+<text x="1580" y="692" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="15" fill="#1E2A30" font-weight="bold" text-anchor="start">*</text>
+<path d="M1070 772 L1070 870" stroke="#333" stroke-width="2" fill="none" marker-end="url(#a-k)"/>
+<text x="1080" y="792" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="15" fill="#1E2A30" font-weight="bold" text-anchor="start">1</text>
+<text x="1080" y="862" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="15" fill="#1E2A30" font-weight="bold" text-anchor="start">0..1</text>
+<path d="M1320 870 L1070 772" stroke="#333" stroke-width="2" fill="none" marker-end="url(#a-k)"/>
+<text x="1330" y="890" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="15" fill="#1E2A30" font-weight="bold" text-anchor="start">*</text>
+<text x="1080" y="764" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="15" fill="#1E2A30" font-weight="bold" text-anchor="start">*</text>
+<path d="M2220 617 L1990 720" stroke="#333" stroke-width="2" fill="none" marker-end="url(#a-k)"/>
+<text x="2230" y="637" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="15" fill="#1E2A30" font-weight="bold" text-anchor="start">1</text>
+<text x="2000" y="712" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="15" fill="#1E2A30" font-weight="bold" text-anchor="start">0..1</text>
+<path d="M2220 617 L2410 720" stroke="#333" stroke-width="2" fill="none" marker-end="url(#a-k)"/>
+<text x="2230" y="637" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="15" fill="#1E2A30" font-weight="bold" text-anchor="start">1</text>
+<text x="2420" y="712" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="15" fill="#1E2A30" font-weight="bold" text-anchor="start">0..1</text>
+<path d="M2220 617 L2200 870" stroke="#333" stroke-width="2" fill="none" marker-end="url(#a-k)"/>
+<text x="2230" y="637" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="15" fill="#1E2A30" font-weight="bold" text-anchor="start">1</text>
+<text x="2210" y="862" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="15" fill="#1E2A30" font-weight="bold" text-anchor="start">*</text>
+<path d="M310 1106 L430 1106" stroke="#333" stroke-width="2" fill="none" marker-end="url(#a-k)"/>
+<rect x="333.64" y="1094" width="72.72" height="22" rx="4" fill="#FFF6DD"/>
+<text x="370" y="1111" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="14" fill="#1E2A30" text-anchor="middle">alimente</text>
+<text x="320" y="1098" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="15" fill="#1E2A30" font-weight="bold" text-anchor="start">*</text>
+<text x="416" y="1098" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="15" fill="#1E2A30" font-weight="bold" text-anchor="end">1</text>
+<path d="M1340 1242 L1110 1300" stroke="#333" stroke-width="2" fill="none" marker-end="url(#a-k)"/>
+<text x="1350" y="1262" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="15" fill="#1E2A30" font-weight="bold" text-anchor="start">1</text>
+<text x="1120" y="1292" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="15" fill="#1E2A30" font-weight="bold" text-anchor="start">*</text>
+<path d="M1340 1242 L1530 1300" stroke="#333" stroke-width="2" fill="none" marker-end="url(#a-k)"/>
+<text x="1350" y="1262" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="15" fill="#1E2A30" font-weight="bold" text-anchor="start">1</text>
+<text x="1540" y="1292" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="15" fill="#1E2A30" font-weight="bold" text-anchor="start">*</text>
+<path d="M440 1611 L1020 1611" stroke="#333" stroke-width="2" fill="none" marker-end="url(#a-k)"/>
+<rect x="666.2" y="1599" width="127.60000000000001" height="22" rx="4" fill="#EAF4E6"/>
+<text x="730" y="1616" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="14" fill="#1E2A30" text-anchor="middle">est découpée en</text>
+<text x="450" y="1603" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="15" fill="#1E2A30" font-weight="bold" text-anchor="start">1</text>
+<text x="1006" y="1603" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="15" fill="#1E2A30" font-weight="bold" text-anchor="end">1..*</text>
+<path d="M1340 1611 L1940 1611" stroke="#333" stroke-width="2" fill="none" marker-end="url(#a-k)"/>
+<rect x="1584.04" y="1599" width="111.92000000000002" height="22" rx="4" fill="#EAF4E6"/>
+<text x="1640" y="1616" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="14" fill="#1E2A30" text-anchor="middle">est équipé de</text>
+<text x="1350" y="1603" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="15" fill="#1E2A30" font-weight="bold" text-anchor="start">1</text>
+<text x="1926" y="1603" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="15" fill="#1E2A30" font-weight="bold" text-anchor="end">*</text>
+<path d="M580 586 L1177 586" stroke="#2E8B14" stroke-width="3" fill="none" stroke-dasharray="12 8" marker-end="url(#a-g)"/>
+<rect x="883.2" y="544" width="253.60000000000002" height="23" rx="4" fill="#fff" stroke="#2E8B14" stroke-width="1"/>
+<text x="1010" y="562" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="15" fill="#2E8B14" font-weight="bold" text-anchor="middle">confirmé, ouvre (FeuConfirme)</text>
+<path d="M1500 581 L2057 581" stroke="#2E8B14" stroke-width="3" fill="none" stroke-dasharray="12 8" marker-end="url(#a-g)"/>
+<rect x="1623.8" y="534" width="312.40000000000003" height="23" rx="4" fill="#fff" stroke="#2E8B14" stroke-width="1"/>
+<text x="1780" y="552" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="15" fill="#2E8B14" font-weight="bold" text-anchor="middle">terminé, crée (InterventionTerminee)</text>
+<path d="M360 550 L360 343" stroke="#777" stroke-width="3" fill="none" stroke-dasharray="3 6" marker-end="url(#a-y)"/>
+<rect x="321.4" y="402" width="77.2" height="23" rx="4" fill="#fff" stroke="#777" stroke-width="1"/>
+<text x="360" y="420" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="15" fill="#777" font-weight="bold" text-anchor="middle">auteurId</text>
+<path d="M1340 545 L1340 343" stroke="#1C7AA8" stroke-width="3" fill="none" marker-end="url(#a-b)"/>
+<rect x="1204.8" y="402" width="270.40000000000003" height="23" rx="4" fill="#fff" stroke="#1C7AA8" stroke-width="1"/>
+<text x="1340" y="420" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="15" fill="#1C7AA8" font-weight="bold" text-anchor="middle">destinataires de la zone (sync)</text>
+<path d="M1570 772 L1570 1206 L1503 1206" stroke="#1C7AA8" stroke-width="3" fill="none" marker-end="url(#a-b)"/>
+<rect x="1464.2" y="1042" width="211.60000000000002" height="23" rx="4" fill="#fff" stroke="#1C7AA8" stroke-width="1"/>
+<text x="1570" y="1060" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="15" fill="#1C7AA8" font-weight="bold" text-anchor="middle">désigne / réserve (sync)</text>
+<path d="M750 1082 L1530 1082 L1530 1297" stroke="#2E8B14" stroke-width="3" fill="none" stroke-dasharray="12 8" marker-end="url(#a-g)"/>
+<rect x="1011.8" y="1034" width="396.40000000000003" height="23" rx="4" fill="#fff" stroke="#2E8B14" stroke-width="1"/>
+<text x="1210" y="1052" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="15" fill="#2E8B14" font-weight="bold" text-anchor="middle">EXTRÊME : pré-positionner (NiveauRisqueChange)</text>
+<path d="M590 1070 L590 1020 L880 1020 L880 736 L957 736" stroke="#2E8B14" stroke-width="3" fill="none" stroke-dasharray="12 8" marker-end="url(#a-g)"/>
+<rect x="489" y="994" width="262" height="23" rx="4" fill="#fff" stroke="#2E8B14" stroke-width="1"/>
+<text x="620" y="1012" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="15" fill="#2E8B14" font-weight="bold" text-anchor="middle">vigilance (NiveauRisqueChange)</text>
+<path d="M580 612 L820 612 L820 1470 L1130 1470 L1130 1572" stroke="#1C7AA8" stroke-width="3" fill="none" marker-end="url(#a-b)"/>
+<rect x="714.2" y="1232" width="211.60000000000002" height="23" rx="4" fill="#fff" stroke="#1C7AA8" stroke-width="1"/>
+<text x="820" y="1250" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="15" fill="#1C7AA8" font-weight="bold" text-anchor="middle">est localisé dans (sync)</text>
+<path d="M200 1142 L200 1435 L1060 1435 L1060 1572" stroke="#1C7AA8" stroke-width="3" fill="none" marker-end="url(#a-b)"/>
+<rect x="106.8" y="1342" width="186.4" height="23" rx="4" fill="#fff" stroke="#1C7AA8" stroke-width="1"/>
+<text x="200" y="1360" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="15" fill="#1C7AA8" font-weight="bold" text-anchor="middle">est mesuré sur (sync)</text>
+<path d="M2220 1012 L2220 1470 L1280 1470 L1280 1572" stroke="#1C7AA8" stroke-width="3" fill="none" marker-end="url(#a-b)"/>
+<rect x="2152" y="1232" width="136" height="23" rx="4" fill="#fff" stroke="#1C7AA8" stroke-width="1"/>
+<text x="2220" y="1250" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="15" fill="#1C7AA8" font-weight="bold" text-anchor="middle">concerne (sync)</text>
+<rect x="220" y="205" width="220" height="72" rx="14" fill="#fff" stroke="#B05E12" stroke-width="2"/>
+<text x="330" y="236" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="18" fill="#1E2A30" text-anchor="middle">Unité</text>
+<text x="330" y="260" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#555" text-anchor="middle">brigade, caserne, association</text>
+<rect x="1020" y="205" width="320" height="72" rx="14" fill="#FFFDF5" stroke="#B05E12" stroke-width="4"/>
+<text x="1180" y="236" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="21" fill="#1E2A30" font-weight="bold" text-anchor="middle">Utilisateur</text>
+<text x="1180" y="260" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#555" text-anchor="middle">garde, bénévole, protection civile, admin</text>
+<rect x="1940" y="205" width="220" height="72" rx="14" fill="#fff" stroke="#B05E12" stroke-width="2"/>
+<text x="2050" y="236" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="18" fill="#1E2A30" text-anchor="middle">Zone d’intervention</text>
+<text x="2050" y="260" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#555" text-anchor="middle">gouvernorats suivis</text>
+<rect x="260" y="550" width="320" height="72" rx="14" fill="#FFFDF5" stroke="#A12E22" stroke-width="4"/>
+<text x="420" y="581" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="21" fill="#1E2A30" font-weight="bold" text-anchor="middle">Signalement</text>
+<text x="420" y="605" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#555" text-anchor="middle">fumée, feu, braises · statut</text>
+<rect x="370" y="695" width="220" height="72" rx="14" fill="#fff" stroke="#A12E22" stroke-width="2"/>
+<text x="480" y="726" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="18" fill="#1E2A30" text-anchor="middle">Photo</text>
+<text x="480" y="750" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#555" text-anchor="middle">preuve du terrain</text>
+<rect x="1180" y="545" width="320" height="72" rx="14" fill="#FFFDF5" stroke="#1F5785" stroke-width="4"/>
+<text x="1340" y="576" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="21" fill="#1E2A30" font-weight="bold" text-anchor="middle">Incident</text>
+<text x="1340" y="600" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#555" text-anchor="middle">un incident par feu confirmé</text>
+<rect x="960" y="700" width="220" height="72" rx="14" fill="#fff" stroke="#1F5785" stroke-width="2"/>
+<text x="1070" y="731" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="18" fill="#1E2A30" text-anchor="middle">Alerte</text>
+<text x="1070" y="755" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#555" text-anchor="middle">incident ou vigilance</text>
+<rect x="1210" y="700" width="220" height="72" rx="14" fill="#fff" stroke="#1F5785" stroke-width="2"/>
+<text x="1320" y="731" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="18" fill="#1E2A30" text-anchor="middle">Bilan</text>
+<text x="1320" y="755" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#555" text-anchor="middle">surface, durée, cause</text>
+<rect x="1460" y="700" width="220" height="72" rx="14" fill="#fff" stroke="#1F5785" stroke-width="2"/>
+<text x="1570" y="731" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="18" fill="#1E2A30" text-anchor="middle">Moyen engagé</text>
+<text x="1570" y="755" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#555" text-anchor="middle">moyen affecté</text>
+<rect x="960" y="870" width="220" height="72" rx="14" fill="#fff" stroke="#1F5785" stroke-width="2"/>
+<text x="1070" y="901" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="18" fill="#1E2A30" text-anchor="middle">Escalade</text>
+<text x="1070" y="925" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#555" text-anchor="middle">si alerte non lue</text>
+<rect x="1210" y="870" width="220" height="72" rx="14" fill="#fff" stroke="#1F5785" stroke-width="2"/>
+<text x="1320" y="901" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="18" fill="#1E2A30" text-anchor="middle">Abonnement</text>
+<text x="1320" y="925" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#555" text-anchor="middle">zone suivie</text>
+<rect x="2060" y="545" width="320" height="72" rx="14" fill="#FFFDF5" stroke="#1D6B5C" stroke-width="4"/>
+<text x="2220" y="576" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="21" fill="#1E2A30" font-weight="bold" text-anchor="middle">Zone sinistrée</text>
+<text x="2220" y="600" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#555" text-anchor="middle">zone brûlée à restaurer</text>
+<rect x="1880" y="720" width="220" height="72" rx="14" fill="#fff" stroke="#1D6B5C" stroke-width="2"/>
+<text x="1990" y="751" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="18" fill="#1E2A30" text-anchor="middle">Évaluation des dégâts</text>
+<text x="1990" y="775" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#555" text-anchor="middle">arbres, sol, érosion</text>
+<rect x="2300" y="720" width="220" height="72" rx="14" fill="#fff" stroke="#1D6B5C" stroke-width="2"/>
+<text x="2410" y="751" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="18" fill="#1E2A30" text-anchor="middle">Plan de restauration</text>
+<text x="2410" y="775" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#555" text-anchor="middle">actions, budget</text>
+<rect x="2090" y="870" width="220" height="72" rx="14" fill="#fff" stroke="#1D6B5C" stroke-width="2"/>
+<text x="2200" y="901" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="18" fill="#1E2A30" text-anchor="middle">Suivi de repousse</text>
+<text x="2200" y="925" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#555" text-anchor="middle">couverture végétale</text>
+<rect x="90" y="1070" width="220" height="72" rx="14" fill="#fff" stroke="#8A6A0E" stroke-width="2"/>
+<text x="200" y="1101" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="18" fill="#1E2A30" text-anchor="middle">Relevé météo</text>
+<text x="200" y="1125" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#555" text-anchor="middle">température, humidité, vent</text>
+<rect x="430" y="1070" width="320" height="72" rx="14" fill="#FFFDF5" stroke="#8A6A0E" stroke-width="4"/>
+<text x="590" y="1101" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="21" fill="#1E2A30" font-weight="bold" text-anchor="middle">Indice de risque</text>
+<text x="590" y="1125" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#555" text-anchor="middle">0 à 100, FAIBLE → EXTRÊME</text>
+<rect x="1180" y="1170" width="320" height="72" rx="14" fill="#FFFDF5" stroke="#533B85" stroke-width="4"/>
+<text x="1340" y="1201" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="21" fill="#1E2A30" font-weight="bold" text-anchor="middle">Ressource</text>
+<text x="1340" y="1225" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#555" text-anchor="middle">camion, équipe, hélicoptère</text>
+<rect x="1000" y="1300" width="220" height="72" rx="14" fill="#fff" stroke="#533B85" stroke-width="2"/>
+<text x="1110" y="1331" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="18" fill="#1E2A30" text-anchor="middle">Réservation</text>
+<text x="1110" y="1355" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#555" text-anchor="middle">moyen réservé</text>
+<rect x="1420" y="1300" width="220" height="72" rx="14" fill="#fff" stroke="#533B85" stroke-width="2"/>
+<text x="1530" y="1331" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="18" fill="#1E2A30" text-anchor="middle">Pré-positionnement</text>
+<text x="1530" y="1355" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#555" text-anchor="middle">si risque EXTRÊME</text>
+<rect x="220" y="1575" width="220" height="72" rx="14" fill="#fff" stroke="#2F6B22" stroke-width="2"/>
+<text x="330" y="1606" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="18" fill="#1E2A30" text-anchor="middle">Forêt</text>
+<text x="330" y="1630" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#555" text-anchor="middle">massif forestier</text>
+<rect x="1020" y="1575" width="320" height="72" rx="14" fill="#FFFDF5" stroke="#2F6B22" stroke-width="4"/>
+<text x="1180" y="1606" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="21" fill="#1E2A30" font-weight="bold" text-anchor="middle">Secteur</text>
+<text x="1180" y="1630" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#555" text-anchor="middle">zone GPS, végétation, état</text>
+<rect x="1940" y="1575" width="220" height="72" rx="14" fill="#fff" stroke="#2F6B22" stroke-width="2"/>
+<text x="2050" y="1606" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="18" fill="#1E2A30" text-anchor="middle">Point de ressource</text>
+<text x="2050" y="1630" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#555" text-anchor="middle">tour de guet, point d’eau</text>
+<text x="60" y="1745" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="17" fill="#1E2A30" font-weight="bold">Légende :</text>
+<path d="M170 1739 L230 1739" stroke="#333" stroke-width="3" fill="none" marker-end="url(#a-k)"/>
+<text x="242" y="1745" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="15" fill="#1E2A30">relation dans un même contexte (verbe, multiplicités)</text>
+<path d="M726.5999999999999 1739 L786.5999999999999 1739" stroke="#1C7AA8" stroke-width="3" fill="none" marker-end="url(#a-b)"/>
+<text x="798.5999999999999" y="1745" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="15" fill="#1E2A30">appel synchrone entre contextes (OpenFeign)</text>
+<path d="M1201.1999999999998 1739 L1261.1999999999998 1739" stroke="#2E8B14" stroke-width="3" fill="none" stroke-dasharray="12 8" marker-end="url(#a-g)"/>
+<text x="1273.1999999999998" y="1745" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="15" fill="#1E2A30">événement asynchrone (RabbitMQ)</text>
+<path d="M1577.3999999999999 1739 L1637.3999999999999 1739" stroke="#777" stroke-width="3" fill="none" stroke-dasharray="3 6" marker-end="url(#a-y)"/>
+<text x="1649.3999999999999" y="1745" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="15" fill="#1E2A30">référence par identifiant</text>
+<rect x="1904.3999999999999" y="1725" width="34" height="22" rx="6" fill="#FFFDF5" stroke="#333" stroke-width="3.5"/>
+<text x="1948.3999999999999" y="1745" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="15" fill="#1E2A30">concept central du contexte (racine d’agrégat)</text><metadata><c2pa:manifest>AAAWgmp1bWIAAAAeanVtZGMycGEAEQAQgAAAqgA4m3EDYzJwYQAAABZcanVtYgAAAEdqdW1kYzJtYQARABCAAACqADibcQN1cm46YzJwYTo2ZGY4NjI1Ni0xMjk4LTQ4MTMtODkzNi05ZWU1ZTFmOWQwZjAAAAADl2p1bWIAAAApanVtZGMyYXMAEQAQgAAAqgA4m3EDYzJwYS5hc3NlcnRpb25zAAAAALxqdW1iAAAARGp1bWRjYm9yABEAEIAAAKoAOJtxE2MycGEuaW5ncmVkaWVudC52MwAAAAAYYzJzaH1OAoMBHbyNp30zwPAPp7QAAABwY2JvcqNpZGM6Zm9ybWF0bWltYWdlL3N2Zyt4bWxqaW5zdGFuY2VJRHgseG1wOmlpZDo0MWI5ZWExNy0xMWM3LTQ2NzYtYTI2OS1kZTZiNGZkY2E0NmFscmVsYXRpb25zaGlwaHBhcmVudE9mAAAB4mp1bWIAAABBanVtZGNib3IAEQAQgAAAqgA4m3ETYzJwYS5hY3Rpb25zLnYyAAAAABhjMnNo4pdfWDhhKx8exHW1++dFYwAAAZljYm9yomdhY3Rpb25zgqJmYWN0aW9ua2MycGEub3BlbmVkanBhcmFtZXRlcnOha2luZ3JlZGllbnRzgaJjdXJseC1zZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmluZ3JlZGllbnQudjNkaGFzaFgg9AZDYr5AAyAGazueZUswlr5WXJLZgX4njEVGyqAl8L6kZmFjdGlvbngdY29tLmFudGhyb3BpYy5jbGF1ZGUucHJvdmlkZWRqcGFyYW1ldGVyc6F4H2NvbS5hbnRocm9waWMub3JpZ2luLWNvbmZpZGVuY2VndW5rbm93bmtkZXNjcmlwdGlvbnhmQ2xhdWRlIHByb3ZpZGVkIHRoaXMgZmlsZSBhdCB0aGUgcmVxdWVzdCBvZiBhIHVzZXIgYW5kIG1heSBoYXZlIGNyZWF0ZWQgb3IgbW9kaWZpZWQgdGhlIGZpbGUgY29udGVudHMubXNvZnR3YXJlQWdlbnShZG5hbWVmQ2xhdWRlcmFsbEFjdGlvbnNJbmNsdWRlZPUAAADIanVtYgAAAEBqdW1kY2JvcgARABCAAACqADibcRNjMnBhLmhhc2guZGF0YQAAAAAYYzJzaKU/sboHxo5KUubOTZ+9NaYAAACAY2JvcqVjYWxnZnNoYTI1NmNwYWRMAAAAAAAAAAAAAAAAZGhhc2hYILy9EWZVjAU0iqtq3ovfBzWorir4jJiDdQ08M01nc5fcZG5hbWVuanVtYmYgbWFuaWZlc3RqZXhjbHVzaW9uc4GiZXN0YXJ0GW4BZmxlbmd0aBkeBAAAAj5qdW1iAAAAJ2p1bWRjMmNsABEAEIAAAKoAOJtxA2MycGEuY2xhaW0udjIAAAACD2Nib3KlY2FsZ2ZzaGEyNTZpc2lnbmF0dXJleE1zZWxmI2p1bWJmPS9jMnBhL3VybjpjMnBhOjZkZjg2MjU2LTEyOTgtNDgxMy04OTM2LTllZTVlMWY5ZDBmMC9jMnBhLnNpZ25hdHVyZWppbnN0YW5jZUlEeCx4bXA6aWlkOjc2YTg3ZjE2LWUzNjgtNDIwZS04NmViLTU1MmMxNGM4ZDNlMXJjcmVhdGVkX2Fzc2VydGlvbnODomN1cmx4LXNlbGYjanVtYmY9YzJwYS5hc3NlcnRpb25zL2MycGEuaW5ncmVkaWVudC52M2RoYXNoWCD0BkNivkADIAZrO55lSzCWvlZcktmBfieMRUbKoCXwvqJjdXJseCpzZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmFjdGlvbnMudjJkaGFzaFggroSwEsZhm0WVG+0PR04AwvHWOLs73npi55KCSaHQMT2iY3VybHgpc2VsZiNqdW1iZj1jMnBhLmFzc2VydGlvbnMvYzJwYS5oYXNoLmRhdGFkaGFzaFggIV73vKxlhzzNJcpz9m/bye0TGFmB5Vn9Rh06Z5aeCWh0Y2xhaW1fZ2VuZXJhdG9yX2luZm+jZG5hbWVvQW50aHJvcGljIEZpbGVzZ3ZlcnNpb25lMS4wLjBrc3BlY1ZlcnNpb25lMi40LjAAABA4anVtYgAAAChqdW1kYzJjcwARABCAAACqADibcQNjMnBhLnNpZ25hdHVyZQAAABAIY2JvctKEWQISogEmGCFZAgowggIGMIIBjaADAgECAhRA5aAK7sI50L64g/oGQgU9Z1UTADAKBggqhkjOPQQDAzBJMRcwFQYDVQQKEw5BbnRocm9waWMsIFBCQzEuMCwGA1UEAxMlQW50aHJvcGljIENvbnRlbnQgQ3JlZGVudGlhbHMgUm9vdCBDQTAeFw0yNjA4MDcxODQzNTZaFw0yODA4MDYxOTQzNTZaMEQxFzAVBgNVBAoTDkFudGhyb3BpYywgUEJDMSkwJwYDVQQDEyBBbnRocm9waWMgQ2xhdWRlIENvbnRlbnQgU2lnbmluZzBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABJh6CmvLUBgFFNU0vUKlOVtE6djd17L5SuwX0LemFisBM3dkd/3cyjxFA3Qo5S46fX0/ihY0VZ7mfb9KF703t5OjWDBWMA4GA1UdDwEB/wQEAwIHgDAVBgNVHSUEDjAMBgorBgEEAYPoXgIBMAwGA1UdEwEB/wQCMAAwHwYDVR0jBBgwFoAUzlHiBIFOZFsj+OPEz5o+nMHXXMIwCgYIKoZIzj0EAwMDZwAwZAIwMXMdFJ4BetLLVY7ORuE9noqbbAZOZn/aArXyTwFAZfKrPzxF2vPoJNf1+UCdg1XGAjBwX1zd9WGqYkqmL5SFqw1QySjr1zJfpJM9+1rdDwSPLMOPOjKuiXjoU/pUUeG9RwmhY3BhZFkNngAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPZYQGmAUOVc+f5o8hCLW7Af8R2sit33xweOaKgJP3B6LKIc0l2QQp+FJkAoBuYZHaO82C1Y+KGEQCvDo/74dSGbiuw=</c2pa:manifest></metadata></svg>

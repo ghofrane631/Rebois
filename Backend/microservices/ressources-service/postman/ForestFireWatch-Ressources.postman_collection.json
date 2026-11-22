@@ -1,0 +1,436 @@
+{
+  "info": {
+    "name": "Forest Fire Watch - Ressources",
+    "description": "Tests du microservice Ressources. Partir d'une base ressources_db fraiche, lancer les dossiers dans l'ordre.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "1. Infrastructure",
+      "item": [
+        {
+          "name": "Config Server - config du service",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Code 200\", () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "http://localhost:8888/ressources-service/default"
+          }
+        },
+        {
+          "name": "Eureka - services enregistres",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Code 200\", () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "http://localhost:8761/eureka/apps"
+          }
+        },
+        {
+          "name": "Actuator - health",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Code 200\", () => pm.response.to.have.status(200));",
+                  "pm.test(\"Statut UP\", () => pm.expect(pm.response.json().status).to.eql(\"UP\"));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{svc}}/actuator/health"
+          }
+        },
+        {
+          "name": "Actuator - info",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Code 200\", () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{svc}}/actuator/info"
+          }
+        }
+      ]
+    },
+    {
+      "name": "2. API via la Gateway",
+      "item": [
+        {
+          "name": "Lister les moyens",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Code 200\", () => pm.response.to.have.status(200));",
+                  "pm.test(\"10 moyens ou plus\", () => pm.expect(pm.response.json().length).to.be.at.least(10));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{gw}}/api/ressources"
+          }
+        },
+        {
+          "name": "Filtrer Zaghouan DISPONIBLE",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Code 200\", () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{gw}}/api/ressources?gouvernorat=Zaghouan&statut=DISPONIBLE"
+          }
+        },
+        {
+          "name": "Detail d'un moyen",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Code 200\", () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{gw}}/api/ressources/1"
+          }
+        },
+        {
+          "name": "Moyen inconnu -> 404",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Code 404\", () => pm.response.to.have.status(404));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{gw}}/api/ressources/999999"
+          }
+        },
+        {
+          "name": "Recenser un moyen -> 201",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Code 201\", () => pm.response.to.have.status(201));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{gw}}/api/ressources",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"type\": \"HELICOPTERE\",\n  \"uniteId\": 1,\n  \"gouvernorat\": \"Zaghouan\",\n  \"latitude\": 36.4,\n  \"longitude\": 10.14\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Requete invalide -> 400",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Code 400\", () => pm.response.to.have.status(400));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{gw}}/api/ressources",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"type\": \"HELICOPTERE\",\n  \"uniteId\": 1,\n  \"gouvernorat\": \"Zaghouan\",\n  \"longitude\": 10.14\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "3. Regles metier",
+      "item": [
+        {
+          "name": "Reserver 2 camions (incident 5) -> 201",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Code 201\", () => pm.response.to.have.status(201));",
+                  "pm.collectionVariables.set(\"reservationId\", pm.response.json().reservations[0].id);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{gw}}/api/ressources/reservations",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"incidentId\": 5,\n  \"type\": \"CAMION_CITERNE\",\n  \"nombre\": 2,\n  \"lat\": 36.42,\n  \"lng\": 10.08\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "description": "Les 2 camions les plus proches (Zaghouan). La caserne garde son dernier camion."
+          }
+        },
+        {
+          "name": "Incident 6 -> 409 reserve minimale",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Code 409\", () => pm.response.to.have.status(409));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{gw}}/api/ressources/reservations",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"incidentId\": 6,\n  \"type\": \"CAMION_CITERNE\",\n  \"nombre\": 2,\n  \"lat\": 36.42,\n  \"lng\": 10.08\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "description": "Un seul camion reservable (Jendouba) : refus complet, MoyensInsuffisants dans outbox_event."
+          }
+        },
+        {
+          "name": "Reservations de l'incident 5",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Code 200\", () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{gw}}/api/ressources/reservations?incidentId=5"
+          }
+        },
+        {
+          "name": "Maintenance d'un moyen reserve -> 409",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Code 409\", () => pm.response.to.have.status(409));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{gw}}/api/ressources/1/statut",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"statut\": \"EN_MAINTENANCE\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Liberer la reservation -> 204",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Code 204\", () => pm.response.to.have.status(204));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": "{{gw}}/api/ressources/reservations/{{reservationId}}"
+          }
+        },
+        {
+          "name": "Liberer une 2e fois -> 204 (idempotent)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Code 204\", () => pm.response.to.have.status(204));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": "{{gw}}/api/ressources/reservations/{{reservationId}}"
+          }
+        },
+        {
+          "name": "Reservation inconnue -> 404",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Code 404\", () => pm.response.to.have.status(404));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": "{{gw}}/api/ressources/reservations/999999"
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "gw",
+      "value": "http://localhost:8080"
+    },
+    {
+      "key": "svc",
+      "value": "http://localhost:8085"
+    },
+    {
+      "key": "reservationId",
+      "value": "1"
+    }
+  ]
+}

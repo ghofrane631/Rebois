@@ -1,0 +1,313 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2966" height="1626" viewBox="0 0 2966 1626" xmlns:c2pa="http://c2pa.org/manifest"><defs><marker id="a-k" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#333"/></marker><marker id="a-b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#1C7AA8"/></marker><marker id="a-g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#2E8B14"/></marker><marker id="a-y" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#777"/></marker></defs><rect width="2966" height="1626" fill="#fff"/><text x="1483" y="56" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="34" fill="#1E2A30" font-weight="bold" text-anchor="middle">Forest Fire Watch — diagramme de classes global</text>
+<text x="1483" y="88" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="16" fill="#555" text-anchor="middle">Une base par microservice · associations dans un même service en trait plein · références vers un autre service en bleu (identifiant seulement, aucune jointure)</text>
+<rect x="40" y="120" width="539.5" height="650" rx="14" fill="#FDF0E6" stroke="#D9822B" stroke-width="2.5"/>
+<text x="58" y="152" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="19" fill="#B05E12" font-weight="bold">User · service commun · PostgreSQL</text>
+<path d="M309.75 324 L309.75 384" stroke="#333" stroke-width="1.8" fill="none"/>
+<text x="317.75" y="342" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="14" fill="#1E2A30" font-weight="bold">1</text>
+<text x="317.75" y="378" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="14" fill="#1E2A30" font-weight="bold">*</text>
+<path d="M309.75 552 L309.75 612" stroke="#333" stroke-width="1.8" fill="none"/>
+<text x="317.75" y="570" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="14" fill="#1E2A30" font-weight="bold">1</text>
+<text x="317.75" y="606" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="14" fill="#1E2A30" font-weight="bold">*</text>
+<rect x="174.75" y="176" width="270" height="148" rx="4" fill="#fff" stroke="#2B2B2B" stroke-width="1.6"/>
+<rect x="174.75" y="176" width="270" height="34" rx="4" fill="#B05E12"/>
+<text x="309.75" y="199" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="16" fill="#fff" font-weight="bold" text-anchor="middle">Unite</text>
+<text x="184.75" y="229" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">id : Long</text>
+<text x="184.75" y="249" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">nom : String</text>
+<text x="184.75" y="269" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">type : TypeUnite</text>
+<text x="184.75" y="289" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">gouvernorat : String</text>
+<text x="184.75" y="309" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">telephone : String</text>
+<rect x="174.75" y="384" width="270" height="168" rx="4" fill="#fff" stroke="#2B2B2B" stroke-width="1.6"/>
+<rect x="174.75" y="384" width="270" height="34" rx="4" fill="#B05E12"/>
+<text x="309.75" y="407" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="16" fill="#fff" font-weight="bold" text-anchor="middle">Utilisateur</text>
+<text x="184.75" y="437" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">id : UUID</text>
+<text x="184.75" y="457" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">keycloakId : String</text>
+<text x="184.75" y="477" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">email, telephone : String</text>
+<text x="184.75" y="497" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">nom, prenom : String</text>
+<text x="184.75" y="517" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">role : Role</text>
+<text x="184.75" y="537" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">uniteId : Long</text>
+<rect x="174.75" y="612" width="270" height="128" rx="4" fill="#fff" stroke="#2B2B2B" stroke-width="1.6"/>
+<rect x="174.75" y="612" width="270" height="34" rx="4" fill="#B05E12"/>
+<text x="309.75" y="635" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="16" fill="#fff" font-weight="bold" text-anchor="middle">ZoneIntervention</text>
+<text x="184.75" y="665" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">id : Long</text>
+<text x="184.75" y="685" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">userId : UUID</text>
+<text x="184.75" y="705" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">gouvernorat : String</text>
+<text x="184.75" y="725" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1C7AA8" font-weight="bold">secteurId : Long</text>
+<text x="436.75" y="725" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="11.5" fill="#1C7AA8" font-style="italic" text-anchor="end">→ Forêt</text>
+<rect x="615.5" y="120" width="539.5" height="650" rx="14" fill="#EAF4E6" stroke="#4E8A3A" stroke-width="2.5"/>
+<text x="633.5" y="152" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="19" fill="#2F6B22" font-weight="bold">MS1 · Forêt · MySQL</text>
+<path d="M885.25 304 L885.25 364" stroke="#333" stroke-width="1.8" fill="none"/>
+<text x="893.25" y="322" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="14" fill="#1E2A30" font-weight="bold">1</text>
+<text x="893.25" y="358" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="14" fill="#1E2A30" font-weight="bold">*</text>
+<path d="M885.25 532 L885.25 592" stroke="#333" stroke-width="1.8" fill="none"/>
+<text x="893.25" y="550" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="14" fill="#1E2A30" font-weight="bold">1</text>
+<text x="893.25" y="586" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="14" fill="#1E2A30" font-weight="bold">*</text>
+<rect x="750.25" y="176" width="270" height="128" rx="4" fill="#fff" stroke="#2B2B2B" stroke-width="1.6"/>
+<rect x="750.25" y="176" width="270" height="34" rx="4" fill="#2F6B22"/>
+<text x="885.25" y="199" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="16" fill="#fff" font-weight="bold" text-anchor="middle">Foret</text>
+<text x="760.25" y="229" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">id : Long</text>
+<text x="760.25" y="249" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">nom : String</text>
+<text x="760.25" y="269" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">gouvernorat : String</text>
+<text x="760.25" y="289" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">superficieHa : double</text>
+<rect x="750.25" y="364" width="270" height="168" rx="4" fill="#fff" stroke="#2B2B2B" stroke-width="1.6"/>
+<rect x="750.25" y="364" width="270" height="34" rx="4" fill="#2F6B22"/>
+<text x="885.25" y="387" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="16" fill="#fff" font-weight="bold" text-anchor="middle">Secteur</text>
+<text x="760.25" y="417" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">id : Long</text>
+<text x="760.25" y="437" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">foretId : Long</text>
+<text x="760.25" y="457" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">code : String (ZAG-03)</text>
+<text x="760.25" y="477" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">latitude, longitude : double</text>
+<text x="760.25" y="497" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">vegetation : Vegetation</text>
+<text x="760.25" y="517" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">etat : EtatSecteur</text>
+<rect x="750.25" y="592" width="270" height="128" rx="4" fill="#fff" stroke="#2B2B2B" stroke-width="1.6"/>
+<rect x="750.25" y="592" width="270" height="34" rx="4" fill="#2F6B22"/>
+<text x="885.25" y="615" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="16" fill="#fff" font-weight="bold" text-anchor="middle">PointRessource</text>
+<text x="760.25" y="645" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">id : Long</text>
+<text x="760.25" y="665" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">secteurId : Long</text>
+<text x="760.25" y="685" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">type : TypePoint</text>
+<text x="760.25" y="705" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">latitude, longitude : double</text>
+<rect x="1191" y="120" width="849.5" height="650" rx="14" fill="#FDECEA" stroke="#C0392B" stroke-width="2.5"/>
+<text x="1209" y="152" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="19" fill="#A12E22" font-weight="bold">MS2 · Signalement · MySQL</text>
+<path d="M1615.75 364 L1460.75 424" stroke="#333" stroke-width="1.8" fill="none"/>
+<text x="1623.75" y="382" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="14" fill="#1E2A30" font-weight="bold">1</text>
+<text x="1468.75" y="418" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="14" fill="#1E2A30" font-weight="bold">*</text>
+<path d="M1615.75 364 L1770.75 424" stroke="#333" stroke-width="1.8" fill="none"/>
+<text x="1623.75" y="382" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="14" fill="#1E2A30" font-weight="bold">1</text>
+<text x="1778.75" y="418" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="14" fill="#1E2A30" font-weight="bold">*</text>
+<rect x="1480.75" y="176" width="270" height="188" rx="4" fill="#fff" stroke="#2B2B2B" stroke-width="1.6"/>
+<rect x="1480.75" y="176" width="270" height="34" rx="4" fill="#A12E22"/>
+<text x="1615.75" y="199" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="16" fill="#fff" font-weight="bold" text-anchor="middle">Signalement</text>
+<text x="1490.75" y="229" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">id : Long</text>
+<text x="1490.75" y="249" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1C7AA8" font-weight="bold">auteurId : String</text>
+<text x="1742.75" y="249" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="11.5" fill="#1C7AA8" font-style="italic" text-anchor="end">→ User</text>
+<text x="1490.75" y="269" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1C7AA8" font-weight="bold">secteurId : Long</text>
+<text x="1742.75" y="269" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="11.5" fill="#1C7AA8" font-style="italic" text-anchor="end">→ Forêt</text>
+<text x="1490.75" y="289" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">type : TypeSignalement</text>
+<text x="1490.75" y="309" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">latitude, longitude : double</text>
+<text x="1490.75" y="329" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">intensite : int (1 à 5)</text>
+<text x="1490.75" y="349" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">statut : Statut</text>
+<rect x="1325.75" y="424" width="270" height="128" rx="4" fill="#fff" stroke="#2B2B2B" stroke-width="1.6"/>
+<rect x="1325.75" y="424" width="270" height="34" rx="4" fill="#A12E22"/>
+<text x="1460.75" y="447" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="16" fill="#fff" font-weight="bold" text-anchor="middle">Photo</text>
+<text x="1335.75" y="477" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">id : Long</text>
+<text x="1335.75" y="497" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">signalementId : Long</text>
+<text x="1335.75" y="517" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">url : String</text>
+<text x="1335.75" y="537" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">priseLe : DateTime</text>
+<rect x="1635.75" y="424" width="270" height="148" rx="4" fill="#fff" stroke="#2B2B2B" stroke-width="1.6"/>
+<rect x="1635.75" y="424" width="270" height="34" rx="4" fill="#A12E22"/>
+<text x="1770.75" y="447" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="16" fill="#fff" font-weight="bold" text-anchor="middle">HistoriqueStatut</text>
+<text x="1645.75" y="477" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">id : Long</text>
+<text x="1645.75" y="497" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">signalementId : Long</text>
+<text x="1645.75" y="517" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">ancien, nouveau : Statut</text>
+<text x="1645.75" y="537" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">gardeId : String</text>
+<text x="1645.75" y="557" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">motif : String</text>
+<rect x="2076.5" y="120" width="849.5" height="650" rx="14" fill="#FFF6DD" stroke="#C9971C" stroke-width="2.5"/>
+<text x="2094.5" y="152" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="19" fill="#8A6A0E" font-weight="bold">MS3 · Risque · MySQL</text>
+<path d="M2656.25 324 L2656.25 424" stroke="#333" stroke-width="1.8" fill="none"/>
+<text x="2664.25" y="342" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="14" fill="#1E2A30" font-weight="bold">1</text>
+<text x="2664.25" y="418" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="14" fill="#1E2A30" font-weight="bold">*</text>
+<rect x="2211.25" y="176" width="270" height="188" rx="4" fill="#fff" stroke="#2B2B2B" stroke-width="1.6"/>
+<rect x="2211.25" y="176" width="270" height="34" rx="4" fill="#8A6A0E"/>
+<text x="2346.25" y="199" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="16" fill="#fff" font-weight="bold" text-anchor="middle">ReleveMeteo</text>
+<text x="2221.25" y="229" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">id : Long</text>
+<text x="2221.25" y="249" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1C7AA8" font-weight="bold">secteurId : Long</text>
+<text x="2473.25" y="249" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="11.5" fill="#1C7AA8" font-style="italic" text-anchor="end">→ Forêt</text>
+<text x="2221.25" y="269" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">date : DateTime</text>
+<text x="2221.25" y="289" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">temperatureC : double</text>
+<text x="2221.25" y="309" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">humiditePct : int</text>
+<text x="2221.25" y="329" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">ventKmh : int</text>
+<text x="2221.25" y="349" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">joursSansPluie : int</text>
+<rect x="2521.25" y="176" width="270" height="148" rx="4" fill="#fff" stroke="#2B2B2B" stroke-width="1.6"/>
+<rect x="2521.25" y="176" width="270" height="34" rx="4" fill="#8A6A0E"/>
+<text x="2656.25" y="199" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="16" fill="#fff" font-weight="bold" text-anchor="middle">IndiceSecteur</text>
+<text x="2531.25" y="229" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1C7AA8" font-weight="bold">secteurId : Long</text>
+<text x="2783.25" y="229" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="11.5" fill="#1C7AA8" font-style="italic" text-anchor="end">→ Forêt</text>
+<text x="2531.25" y="249" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">indice : int (0 à 100)</text>
+<text x="2531.25" y="269" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">niveau : Niveau</text>
+<text x="2531.25" y="289" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">feuxRecents : int</text>
+<text x="2531.25" y="309" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">majLe : DateTime</text>
+<rect x="2521.25" y="424" width="270" height="148" rx="4" fill="#fff" stroke="#2B2B2B" stroke-width="1.6"/>
+<rect x="2521.25" y="424" width="270" height="34" rx="4" fill="#8A6A0E"/>
+<text x="2656.25" y="447" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="16" fill="#fff" font-weight="bold" text-anchor="middle">HistoriqueNiveau</text>
+<text x="2531.25" y="477" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">id : Long</text>
+<text x="2531.25" y="497" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1C7AA8" font-weight="bold">secteurId : Long</text>
+<text x="2783.25" y="497" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="11.5" fill="#1C7AA8" font-style="italic" text-anchor="end">→ Forêt</text>
+<text x="2531.25" y="517" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">ancien, nouveau : Niveau</text>
+<text x="2531.25" y="537" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">cause : String</text>
+<text x="2531.25" y="557" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">date : DateTime</text>
+<rect x="40" y="806" width="1248" height="690" rx="14" fill="#E8F1FA" stroke="#2C6FA8" stroke-width="2.5"/>
+<text x="58" y="838" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="19" fill="#1F5785" font-weight="bold">MS4 · Coordination de crise · MySQL</text>
+<path d="M664 1030 L199 1090" stroke="#333" stroke-width="1.8" fill="none"/>
+<text x="672" y="1048" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="14" fill="#1E2A30" font-weight="bold">1</text>
+<text x="207" y="1084" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="14" fill="#1E2A30" font-weight="bold">*</text>
+<path d="M664 1030 L509 1090" stroke="#333" stroke-width="1.8" fill="none"/>
+<text x="672" y="1048" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="14" fill="#1E2A30" font-weight="bold">1</text>
+<text x="517" y="1084" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="14" fill="#1E2A30" font-weight="bold">*</text>
+<path d="M664 1030 L819 1090" stroke="#333" stroke-width="1.8" fill="none"/>
+<text x="672" y="1048" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="14" fill="#1E2A30" font-weight="bold">1</text>
+<text x="827" y="1084" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="14" fill="#1E2A30" font-weight="bold">0..1</text>
+<path d="M664 1030 L1129 1090" stroke="#333" stroke-width="1.8" fill="none"/>
+<text x="672" y="1048" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="14" fill="#1E2A30" font-weight="bold">1</text>
+<text x="1137" y="1084" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="14" fill="#1E2A30" font-weight="bold">*</text>
+<path d="M1129 1258 L1129 1318" stroke="#333" stroke-width="1.8" fill="none"/>
+<text x="1137" y="1276" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="14" fill="#1E2A30" font-weight="bold">1</text>
+<text x="1137" y="1312" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="14" fill="#1E2A30" font-weight="bold">0..1</text>
+<path d="M954 1368 L994 1368" stroke="#333" stroke-width="1.8" fill="none"/>
+<text x="962" y="1361" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="14" fill="#1E2A30" font-weight="bold" text-anchor="start">1</text>
+<text x="986" y="1361" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="14" fill="#1E2A30" font-weight="bold" text-anchor="end">*</text>
+<rect x="529" y="862" width="270" height="168" rx="4" fill="#fff" stroke="#2B2B2B" stroke-width="1.6"/>
+<rect x="529" y="862" width="270" height="34" rx="4" fill="#1F5785"/>
+<text x="664" y="885" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="16" fill="#fff" font-weight="bold" text-anchor="middle">Incident</text>
+<text x="539" y="915" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">id : Long</text>
+<text x="539" y="935" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1C7AA8" font-weight="bold">signalementId : Long</text>
+<text x="791" y="935" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="11.5" fill="#1C7AA8" font-style="italic" text-anchor="end">→ Signalement</text>
+<text x="539" y="955" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1C7AA8" font-weight="bold">secteurId : Long</text>
+<text x="791" y="955" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="11.5" fill="#1C7AA8" font-style="italic" text-anchor="end">→ Forêt</text>
+<text x="539" y="975" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">niveauRisque : Niveau</text>
+<text x="539" y="995" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">ouvertLe : DateTime</text>
+<text x="539" y="1015" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">statut : StatutIncident</text>
+<rect x="994" y="862" width="270" height="128" rx="4" fill="#fff" stroke="#2B2B2B" stroke-width="1.6"/>
+<rect x="994" y="862" width="270" height="34" rx="4" fill="#1F5785"/>
+<text x="1129" y="885" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="16" fill="#fff" font-weight="bold" text-anchor="middle">Abonnement</text>
+<text x="1004" y="915" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">id : Long</text>
+<text x="1004" y="935" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1C7AA8" font-weight="bold">userId : String</text>
+<text x="1256" y="935" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="11.5" fill="#1C7AA8" font-style="italic" text-anchor="end">→ User</text>
+<text x="1004" y="955" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">gouvernorat : String</text>
+<text x="1004" y="975" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">niveauMin : Niveau</text>
+<rect x="64" y="1090" width="270" height="128" rx="4" fill="#fff" stroke="#2B2B2B" stroke-width="1.6"/>
+<rect x="64" y="1090" width="270" height="34" rx="4" fill="#1F5785"/>
+<text x="199" y="1113" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="16" fill="#fff" font-weight="bold" text-anchor="middle">MoyenEngage</text>
+<text x="74" y="1143" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">id : Long</text>
+<text x="74" y="1163" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">incidentId : Long</text>
+<text x="74" y="1183" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1C7AA8" font-weight="bold">ressourceId : Long</text>
+<text x="326" y="1183" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="11.5" fill="#1C7AA8" font-style="italic" text-anchor="end">→ Ressources</text>
+<text x="74" y="1203" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">engageLe : DateTime</text>
+<rect x="374" y="1090" width="270" height="148" rx="4" fill="#fff" stroke="#2B2B2B" stroke-width="1.6"/>
+<rect x="374" y="1090" width="270" height="34" rx="4" fill="#1F5785"/>
+<text x="509" y="1113" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="16" fill="#fff" font-weight="bold" text-anchor="middle">EvenementChrono</text>
+<text x="384" y="1143" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">id : Long</text>
+<text x="384" y="1163" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">incidentId : Long</text>
+<text x="384" y="1183" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">heure : DateTime</text>
+<text x="384" y="1203" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">action : String</text>
+<text x="384" y="1223" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">source : SourceAction</text>
+<rect x="684" y="1090" width="270" height="128" rx="4" fill="#fff" stroke="#2B2B2B" stroke-width="1.6"/>
+<rect x="684" y="1090" width="270" height="34" rx="4" fill="#1F5785"/>
+<text x="819" y="1113" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="16" fill="#fff" font-weight="bold" text-anchor="middle">Bilan</text>
+<text x="694" y="1143" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">incidentId : Long</text>
+<text x="694" y="1163" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">surfaceBruleeHa : double</text>
+<text x="694" y="1183" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">dureeMin : int</text>
+<text x="694" y="1203" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">cause : String</text>
+<rect x="994" y="1090" width="270" height="168" rx="4" fill="#fff" stroke="#2B2B2B" stroke-width="1.6"/>
+<rect x="994" y="1090" width="270" height="34" rx="4" fill="#1F5785"/>
+<text x="1129" y="1113" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="16" fill="#fff" font-weight="bold" text-anchor="middle">AlerteEmise</text>
+<text x="1004" y="1143" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">id : Long</text>
+<text x="1004" y="1163" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">incidentId : Long (vide si vigilance)</text>
+<text x="1004" y="1183" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1C7AA8" font-weight="bold">userId : String</text>
+<text x="1256" y="1183" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="11.5" fill="#1C7AA8" font-style="italic" text-anchor="end">→ User</text>
+<text x="1004" y="1203" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">type : TypeAlerte</text>
+<text x="1004" y="1223" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">canal : Canal</text>
+<text x="1004" y="1243" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">lue : boolean</text>
+<rect x="684" y="1318" width="270" height="148" rx="4" fill="#fff" stroke="#2B2B2B" stroke-width="1.6"/>
+<rect x="684" y="1318" width="270" height="34" rx="4" fill="#1F5785"/>
+<text x="819" y="1341" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="16" fill="#fff" font-weight="bold" text-anchor="middle">RegleEscalade</text>
+<text x="694" y="1371" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">id : Long</text>
+<text x="694" y="1391" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">typeAlerte : TypeAlerte</text>
+<text x="694" y="1411" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">delaiMin : int</text>
+<text x="694" y="1431" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">cible : CibleEscalade</text>
+<text x="694" y="1451" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">smsObligatoire : boolean</text>
+<rect x="994" y="1318" width="270" height="148" rx="4" fill="#fff" stroke="#2B2B2B" stroke-width="1.6"/>
+<rect x="994" y="1318" width="270" height="34" rx="4" fill="#1F5785"/>
+<text x="1129" y="1341" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="16" fill="#fff" font-weight="bold" text-anchor="middle">Escalade</text>
+<text x="1004" y="1371" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">id : Long</text>
+<text x="1004" y="1391" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">alerteId : Long</text>
+<text x="1004" y="1411" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">regleId : Long</text>
+<text x="1004" y="1431" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">declencheeLe : DateTime</text>
+<text x="1004" y="1451" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1C7AA8" font-weight="bold">uniteCibleId : Long</text>
+<text x="1256" y="1451" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="11.5" fill="#1C7AA8" font-style="italic" text-anchor="end">→ User</text>
+<rect x="1324" y="806" width="628" height="690" rx="14" fill="#EFEAF7" stroke="#6A4FA3" stroke-width="2.5"/>
+<text x="1342" y="838" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="19" fill="#533B85" font-weight="bold">MS5 · Ressources · MySQL</text>
+<path d="M1638 1030 L1483 1090" stroke="#333" stroke-width="1.8" fill="none"/>
+<text x="1646" y="1048" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="14" fill="#1E2A30" font-weight="bold">1</text>
+<text x="1491" y="1084" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="14" fill="#1E2A30" font-weight="bold">*</text>
+<path d="M1638 1030 L1793 1090" stroke="#333" stroke-width="1.8" fill="none"/>
+<text x="1646" y="1048" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="14" fill="#1E2A30" font-weight="bold">1</text>
+<text x="1801" y="1084" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="14" fill="#1E2A30" font-weight="bold">*</text>
+<rect x="1503" y="862" width="270" height="168" rx="4" fill="#fff" stroke="#2B2B2B" stroke-width="1.6"/>
+<rect x="1503" y="862" width="270" height="34" rx="4" fill="#533B85"/>
+<text x="1638" y="885" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="16" fill="#fff" font-weight="bold" text-anchor="middle">Ressource</text>
+<text x="1513" y="915" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">id : Long</text>
+<text x="1513" y="935" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">type : TypeRessource</text>
+<text x="1513" y="955" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1C7AA8" font-weight="bold">uniteId : Long</text>
+<text x="1765" y="955" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="11.5" fill="#1C7AA8" font-style="italic" text-anchor="end">→ User</text>
+<text x="1513" y="975" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">gouvernorat : String</text>
+<text x="1513" y="995" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">statut : StatutRessource</text>
+<text x="1513" y="1015" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">version : int</text>
+<rect x="1348" y="1090" width="270" height="128" rx="4" fill="#fff" stroke="#2B2B2B" stroke-width="1.6"/>
+<rect x="1348" y="1090" width="270" height="34" rx="4" fill="#533B85"/>
+<text x="1483" y="1113" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="16" fill="#fff" font-weight="bold" text-anchor="middle">Reservation</text>
+<text x="1358" y="1143" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">id : Long</text>
+<text x="1358" y="1163" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">ressourceId : Long</text>
+<text x="1358" y="1183" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1C7AA8" font-weight="bold">interventionId : Long</text>
+<text x="1610" y="1183" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="11.5" fill="#1C7AA8" font-style="italic" text-anchor="end">→ Coordination</text>
+<text x="1358" y="1203" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">debut, fin : DateTime</text>
+<rect x="1658" y="1090" width="270" height="128" rx="4" fill="#fff" stroke="#2B2B2B" stroke-width="1.6"/>
+<rect x="1658" y="1090" width="270" height="34" rx="4" fill="#533B85"/>
+<text x="1793" y="1113" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="16" fill="#fff" font-weight="bold" text-anchor="middle">PrePositionnement</text>
+<text x="1668" y="1143" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">id : Long</text>
+<text x="1668" y="1163" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">ressourceId : Long</text>
+<text x="1668" y="1183" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1C7AA8" font-weight="bold">secteurId : Long</text>
+<text x="1920" y="1183" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="11.5" fill="#1C7AA8" font-style="italic" text-anchor="end">→ Forêt</text>
+<text x="1668" y="1203" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">date : DateTime</text>
+<rect x="1988" y="806" width="938" height="690" rx="14" fill="#E6F5F2" stroke="#2A8A78" stroke-width="2.5"/>
+<text x="2006" y="838" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="19" fill="#1D6B5C" font-weight="bold">MS6 · Restauration · MySQL</text>
+<path d="M2457 1030 L2147 1090" stroke="#333" stroke-width="1.8" fill="none"/>
+<text x="2465" y="1048" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="14" fill="#1E2A30" font-weight="bold">1</text>
+<text x="2155" y="1084" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="14" fill="#1E2A30" font-weight="bold">0..1</text>
+<path d="M2457 1030 L2457 1090" stroke="#333" stroke-width="1.8" fill="none"/>
+<text x="2465" y="1048" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="14" fill="#1E2A30" font-weight="bold">1</text>
+<text x="2465" y="1084" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="14" fill="#1E2A30" font-weight="bold">0..1</text>
+<path d="M2457 1030 L2767 1090" stroke="#333" stroke-width="1.8" fill="none"/>
+<text x="2465" y="1048" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="14" fill="#1E2A30" font-weight="bold">1</text>
+<text x="2775" y="1084" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="14" fill="#1E2A30" font-weight="bold">*</text>
+<rect x="2322" y="862" width="270" height="168" rx="4" fill="#fff" stroke="#2B2B2B" stroke-width="1.6"/>
+<rect x="2322" y="862" width="270" height="34" rx="4" fill="#1D6B5C"/>
+<text x="2457" y="885" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="16" fill="#fff" font-weight="bold" text-anchor="middle">ZoneSinistree</text>
+<text x="2332" y="915" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">id : Long</text>
+<text x="2332" y="935" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1C7AA8" font-weight="bold">incidentId : Long</text>
+<text x="2584" y="935" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="11.5" fill="#1C7AA8" font-style="italic" text-anchor="end">→ Coordination</text>
+<text x="2332" y="955" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1C7AA8" font-weight="bold">secteurId : Long</text>
+<text x="2584" y="955" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="11.5" fill="#1C7AA8" font-style="italic" text-anchor="end">→ Forêt</text>
+<text x="2332" y="975" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">surfaceBruleeHa : double</text>
+<text x="2332" y="995" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">gravite : Gravite</text>
+<text x="2332" y="1015" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">statut : StatutZone</text>
+<rect x="2012" y="1090" width="270" height="168" rx="4" fill="#fff" stroke="#2B2B2B" stroke-width="1.6"/>
+<rect x="2012" y="1090" width="270" height="34" rx="4" fill="#1D6B5C"/>
+<text x="2147" y="1113" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="16" fill="#fff" font-weight="bold" text-anchor="middle">EvaluationDegats</text>
+<text x="2022" y="1143" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">id : Long</text>
+<text x="2022" y="1163" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">zoneId : Long</text>
+<text x="2022" y="1183" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">arbresPerdus : int</text>
+<text x="2022" y="1203" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">etatSol : EtatSol</text>
+<text x="2022" y="1223" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">risqueErosion : boolean</text>
+<text x="2022" y="1243" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">evalueeLe : Date</text>
+<rect x="2322" y="1090" width="270" height="148" rx="4" fill="#fff" stroke="#2B2B2B" stroke-width="1.6"/>
+<rect x="2322" y="1090" width="270" height="34" rx="4" fill="#1D6B5C"/>
+<text x="2457" y="1113" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="16" fill="#fff" font-weight="bold" text-anchor="middle">PlanRestauration</text>
+<text x="2332" y="1143" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">id : Long</text>
+<text x="2332" y="1163" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">zoneId : Long</text>
+<text x="2332" y="1183" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">vegetationCible : String</text>
+<text x="2332" y="1203" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">budgetEstime : double</text>
+<text x="2332" y="1223" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">actions : List&lt;Action&gt;</text>
+<rect x="2632" y="1090" width="270" height="148" rx="4" fill="#fff" stroke="#2B2B2B" stroke-width="1.6"/>
+<rect x="2632" y="1090" width="270" height="34" rx="4" fill="#1D6B5C"/>
+<text x="2767" y="1113" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="16" fill="#fff" font-weight="bold" text-anchor="middle">SuiviRepousse</text>
+<text x="2642" y="1143" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">id : Long</text>
+<text x="2642" y="1163" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">zoneId : Long</text>
+<text x="2642" y="1183" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">date : Date</text>
+<text x="2642" y="1203" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1E2A30">couverturePct : int</text>
+<text x="2642" y="1223" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="13.5" fill="#1C7AA8" font-weight="bold">gardeId : String</text>
+<text x="2894" y="1223" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="11.5" fill="#1C7AA8" font-style="italic" text-anchor="end">→ User</text>
+<rect x="40" y="1526" width="2886" height="64" rx="10" fill="#FAFAFA" stroke="#BBB" stroke-width="1.5"/>
+<text x="60" y="1565" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="17" fill="#1E2A30" font-weight="bold">Légende :</text>
+<path d="M170 1559 L240 1559" stroke="#333" stroke-width="1.8" fill="none"/>
+<text x="250" y="1565" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="16" fill="#1E2A30">association dans un même service (1, *, 0..1)</text>
+<text x="660" y="1565" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="16" fill="#1C7AA8" font-weight="bold">secteurId : Long   → Forêt</text>
+<text x="885" y="1565" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="16" fill="#1E2A30">référence vers un autre service, par identifiant (pas de clé étrangère entre bases)</text>
+<text x="1590" y="1565" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="16" fill="#1E2A30">userId / auteurId → User : identifiant Keycloak de l’utilisateur</text><metadata><c2pa:manifest>AAAWgmp1bWIAAAAeanVtZGMycGEAEQAQgAAAqgA4m3EDYzJwYQAAABZcanVtYgAAAEdqdW1kYzJtYQARABCAAACqADibcQN1cm46YzJwYTplY2Y0NjFjNS0xZjZiLTQ0NzAtOGQ0MS1lNzgyNTQzZTFlZjkAAAADl2p1bWIAAAApanVtZGMyYXMAEQAQgAAAqgA4m3EDYzJwYS5hc3NlcnRpb25zAAAAALxqdW1iAAAARGp1bWRjYm9yABEAEIAAAKoAOJtxE2MycGEuaW5ncmVkaWVudC52MwAAAAAYYzJzaIFQlUMUBGJQPVIo3+E4JnEAAABwY2JvcqNpZGM6Zm9ybWF0bWltYWdlL3N2Zyt4bWxqaW5zdGFuY2VJRHgseG1wOmlpZDo5NWE5NzAyNy0xYmJjLTQ4ZjEtODY1Yi03N2RhOGI4MTk4MjRscmVsYXRpb25zaGlwaHBhcmVudE9mAAAB4mp1bWIAAABBanVtZGNib3IAEQAQgAAAqgA4m3ETYzJwYS5hY3Rpb25zLnYyAAAAABhjMnNosGGItVvxQjezahoSOq0WuQAAAZljYm9yomdhY3Rpb25zgqJmYWN0aW9ua2MycGEub3BlbmVkanBhcmFtZXRlcnOha2luZ3JlZGllbnRzgaJjdXJseC1zZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmluZ3JlZGllbnQudjNkaGFzaFggC5xc429C/FQSmjTj0hSkFzSvr9svQ8zc5up6tSFvOrmkZmFjdGlvbngdY29tLmFudGhyb3BpYy5jbGF1ZGUucHJvdmlkZWRqcGFyYW1ldGVyc6F4H2NvbS5hbnRocm9waWMub3JpZ2luLWNvbmZpZGVuY2VndW5rbm93bmtkZXNjcmlwdGlvbnhmQ2xhdWRlIHByb3ZpZGVkIHRoaXMgZmlsZSBhdCB0aGUgcmVxdWVzdCBvZiBhIHVzZXIgYW5kIG1heSBoYXZlIGNyZWF0ZWQgb3IgbW9kaWZpZWQgdGhlIGZpbGUgY29udGVudHMubXNvZnR3YXJlQWdlbnShZG5hbWVmQ2xhdWRlcmFsbEFjdGlvbnNJbmNsdWRlZPUAAADIanVtYgAAAEBqdW1kY2JvcgARABCAAACqADibcRNjMnBhLmhhc2guZGF0YQAAAAAYYzJzaFjkTgO83Hykz/uSG2NGDSgAAACAY2JvcqVjYWxnZnNoYTI1NmNwYWRMAAAAAAAAAAAAAAAAZGhhc2hYIIWzmhd/cXYw2Vil2jIVfvJbiok+PGM7V6M++o5IVrV4ZG5hbWVuanVtYmYgbWFuaWZlc3RqZXhjbHVzaW9uc4GiZXN0YXJ0GaqLZmxlbmd0aBkeBAAAAj5qdW1iAAAAJ2p1bWRjMmNsABEAEIAAAKoAOJtxA2MycGEuY2xhaW0udjIAAAACD2Nib3KlY2FsZ2ZzaGEyNTZpc2lnbmF0dXJleE1zZWxmI2p1bWJmPS9jMnBhL3VybjpjMnBhOmVjZjQ2MWM1LTFmNmItNDQ3MC04ZDQxLWU3ODI1NDNlMWVmOS9jMnBhLnNpZ25hdHVyZWppbnN0YW5jZUlEeCx4bXA6aWlkOmI3ZThlZjY4LTJjMTgtNGMzMi1iMWE1LWEzOTkwMzU1M2NhOXJjcmVhdGVkX2Fzc2VydGlvbnODomN1cmx4LXNlbGYjanVtYmY9YzJwYS5hc3NlcnRpb25zL2MycGEuaW5ncmVkaWVudC52M2RoYXNoWCALnFzjb0L8VBKaNOPSFKQXNK+v2y9DzNzm6nq1IW86uaJjdXJseCpzZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmFjdGlvbnMudjJkaGFzaFgg2aYJaoReTpKLRwDcxxEqDdG+WKoYuYbzSU2UFiRSFlWiY3VybHgpc2VsZiNqdW1iZj1jMnBhLmFzc2VydGlvbnMvYzJwYS5oYXNoLmRhdGFkaGFzaFggZn7lDM2f2VjX/hCPyRNYtAcwg+/RqrDdX38Ug+b3oKV0Y2xhaW1fZ2VuZXJhdG9yX2luZm+jZG5hbWVvQW50aHJvcGljIEZpbGVzZ3ZlcnNpb25lMS4wLjBrc3BlY1ZlcnNpb25lMi40LjAAABA4anVtYgAAAChqdW1kYzJjcwARABCAAACqADibcQNjMnBhLnNpZ25hdHVyZQAAABAIY2JvctKEWQISogEmGCFZAgowggIGMIIBjaADAgECAhRA5aAK7sI50L64g/oGQgU9Z1UTADAKBggqhkjOPQQDAzBJMRcwFQYDVQQKEw5BbnRocm9waWMsIFBCQzEuMCwGA1UEAxMlQW50aHJvcGljIENvbnRlbnQgQ3JlZGVudGlhbHMgUm9vdCBDQTAeFw0yNjA4MDcxODQzNTZaFw0yODA4MDYxOTQzNTZaMEQxFzAVBgNVBAoTDkFudGhyb3BpYywgUEJDMSkwJwYDVQQDEyBBbnRocm9waWMgQ2xhdWRlIENvbnRlbnQgU2lnbmluZzBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABJh6CmvLUBgFFNU0vUKlOVtE6djd17L5SuwX0LemFisBM3dkd/3cyjxFA3Qo5S46fX0/ihY0VZ7mfb9KF703t5OjWDBWMA4GA1UdDwEB/wQEAwIHgDAVBgNVHSUEDjAMBgorBgEEAYPoXgIBMAwGA1UdEwEB/wQCMAAwHwYDVR0jBBgwFoAUzlHiBIFOZFsj+OPEz5o+nMHXXMIwCgYIKoZIzj0EAwMDZwAwZAIwMXMdFJ4BetLLVY7ORuE9noqbbAZOZn/aArXyTwFAZfKrPzxF2vPoJNf1+UCdg1XGAjBwX1zd9WGqYkqmL5SFqw1QySjr1zJfpJM9+1rdDwSPLMOPOjKuiXjoU/pUUeG9RwmhY3BhZFkNngAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPZYQCRWPEYsKGTlLLA1YcKZUxL2UIFX9lMOLoBy0r4WxzLHVqSzpqLa0AzBf62ykcLZhD6pwF2GfFhddbx917//gd8=</c2pa:manifest></metadata></svg>
