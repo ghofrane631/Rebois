@@ -1,0 +1,72 @@
+{
+  "realm": "forest-fire-watch",
+  "enabled": true,
+  "displayName": "Forest Fire Watch",
+  "displayNameHtml": "<b>Forest Fire Watch</b>",
+  "sslRequired": "none",
+  "registrationAllowed": false,
+  "loginWithEmailAllowed": true,
+  "duplicateEmailsAllowed": false,
+  "resetPasswordAllowed": false,
+  "editUsernameAllowed": false,
+  "accessTokenLifespan": 300,
+  "ssoSessionIdleTimeout": 1800,
+  "ssoSessionMaxLifespan": 36000,
+  "roles": {
+    "realm": [
+      { "name": "ADMIN", "description": "Administrateur de la plateforme" },
+      { "name": "GARDE", "description": "Garde forestier : confirme les feux" },
+      { "name": "BENEVOLE", "description": "Bénévole : signale les feux" }
+    ]
+  },
+  "users": [
+    {
+      "username": "admin",
+      "enabled": true,
+      "email": "admin@ffw.tn",
+      "emailVerified": true,
+      "firstName": "Admin",
+      "lastName": "Demo",
+      "credentials": [{ "type": "password", "value": "admin", "temporary": false }],
+      "realmRoles": ["ADMIN"]
+    },
+    {
+      "username": "garde",
+      "enabled": true,
+      "email": "garde@ffw.tn",
+      "emailVerified": true,
+      "firstName": "Garde",
+      "lastName": "Demo",
+      "credentials": [{ "type": "password", "value": "garde", "temporary": false }],
+      "realmRoles": ["GARDE"]
+    },
+    {
+      "username": "benevole",
+      "enabled": true,
+      "email": "benevole@ffw.tn",
+      "emailVerified": true,
+      "firstName": "Benevole",
+      "lastName": "Demo",
+      "credentials": [{ "type": "password", "value": "benevole", "temporary": false }],
+      "realmRoles": ["BENEVOLE"]
+    }
+  ],
+  "clients": [
+    {
+      "clientId": "ffw-web",
+      "name": "Forest Fire Watch Web",
+      "description": "Application web (Angular) et tests Postman",
+      "enabled": true,
+      "protocol": "openid-connect",
+      "publicClient": true,
+      "standardFlowEnabled": true,
+      "directAccessGrantsEnabled": true,
+      "serviceAccountsEnabled": false,
+      "redirectUris": ["http://localhost:4200/*", "http://localhost:8080/*"],
+      "webOrigins": ["http://localhost:4200", "http://localhost:8080"],
+      "attributes": {
+        "pkce.code.challenge.method": "S256"
+      }
+    }
+  ]
+}
