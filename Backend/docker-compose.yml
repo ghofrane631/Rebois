@@ -62,7 +62,7 @@ services:
       - ffw-net
 
   eureka:
-    build: ./eureka
+    build: ./discovery-server
     container_name: eureka
     ports:
       - "8761:8761"

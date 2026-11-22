@@ -16,6 +16,18 @@ spring:
           predicates:
             - Path=/api/ressources/**
 
+        # Service 2 : Signalement
+        - id: signalement
+          uri: lb://signalement
+          predicates:
+            - Path=/api/signalements/**
+
+        # Service 3 : Risque
+        - id: ms-risque
+          uri: lb://ms-risque
+          predicates:
+            - Path=/api/risque/**
+
         # Ajouter ici les routes des autres services de l'équipe, par exemple :
         # - id: foret-service
         #   uri: lb://foret-service
