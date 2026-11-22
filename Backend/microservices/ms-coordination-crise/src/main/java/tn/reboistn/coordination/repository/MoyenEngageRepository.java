@@ -1,7 +1,7 @@
 package tn.reboistn.coordination.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import tn.reboistn.coordination.model.MoyenEngage;
+import tn.reboistn.coordination.entity.MoyenEngage;
 
 import java.util.List;
 

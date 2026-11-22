@@ -7,7 +7,7 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
-import tn.reboistn.coordination.model.*;
+import tn.reboistn.coordination.entity.*;
 import tn.reboistn.coordination.repository.AlerteEmiseRepository;
 import tn.reboistn.coordination.repository.EscaladeRepository;
 import tn.reboistn.coordination.repository.RegleEscaladeRepository;

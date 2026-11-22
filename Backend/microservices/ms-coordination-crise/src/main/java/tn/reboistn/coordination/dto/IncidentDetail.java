@@ -1,6 +1,6 @@
 package tn.reboistn.coordination.dto;
 
-import tn.reboistn.coordination.model.*;
+import tn.reboistn.coordination.entity.*;
 
 import java.util.List;
 

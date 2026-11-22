@@ -16,7 +16,7 @@ import tn.reboistn.coordination.dto.BilanRequest;
 import tn.reboistn.coordination.dto.IncidentDetail;
 import tn.reboistn.coordination.event.InterventionTerminee;
 import tn.reboistn.coordination.messaging.EvenementPublisher;
-import tn.reboistn.coordination.model.*;
+import tn.reboistn.coordination.entity.*;
 import tn.reboistn.coordination.repository.*;
 
 import java.time.LocalDateTime;

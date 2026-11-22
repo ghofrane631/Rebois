@@ -1,7 +1,7 @@
 package tn.reboistn.coordination.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import tn.reboistn.coordination.model.EvenementChrono;
+import tn.reboistn.coordination.entity.EvenementChrono;
 
 import java.util.List;
 

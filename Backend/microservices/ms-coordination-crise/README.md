@@ -33,10 +33,18 @@ mvn spring-boot:run
 | `DB_USER` | `root` | utilisateur MySQL |
 | `DB_PASSWORD` | vide | mot de passe MySQL |
 | `EUREKA_URL` | `http://localhost:8761/eureka` | annuaire Eureka |
+| `CONFIG_SERVER_URL` | `http://localhost:8888` | Config Server de l'équipe (optionnel) |
 | `RABBIT_HOST` | `localhost` | serveur RabbitMQ |
 | `EVENTS_EXCHANGE` | `ffw.events` | exchange commun des événements |
 | `RABBIT_HEALTH` | `false` | inclure RabbitMQ dans `/actuator/health` (à activer quand RabbitMQ tourne) |
 | `RESSOURCES_SERVICE` / `SIGNALEMENT_SERVICE` / `USER_SERVICE` | `ressources-service` / `signalement` / `ms-user` | noms Eureka des services appelés |
+
+Docker (après `mvn package`) :
+
+```bash
+docker build -t ms-coordination-crise .
+docker run -p 8088:8088 -e DB_HOST=host.docker.internal -e DB_PASSWORD=... -e EUREKA_URL=http://host.docker.internal:8761/eureka ms-coordination-crise
+```
 
 Tests : `mvn test` (profil `test` : base H2 en mémoire, utilisée uniquement pour les tests).
 

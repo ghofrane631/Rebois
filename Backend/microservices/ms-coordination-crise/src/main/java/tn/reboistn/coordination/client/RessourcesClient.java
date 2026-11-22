@@ -3,7 +3,7 @@ package tn.reboistn.coordination.client;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import tn.reboistn.coordination.model.TypeMoyen;
+import tn.reboistn.coordination.entity.TypeMoyen;
 
 import java.util.List;
 

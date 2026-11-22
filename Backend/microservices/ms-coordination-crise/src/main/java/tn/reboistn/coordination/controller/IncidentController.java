@@ -7,7 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import tn.reboistn.coordination.dto.*;
-import tn.reboistn.coordination.model.*;
+import tn.reboistn.coordination.entity.*;
 import tn.reboistn.coordination.service.IncidentService;
 
 import java.util.List;

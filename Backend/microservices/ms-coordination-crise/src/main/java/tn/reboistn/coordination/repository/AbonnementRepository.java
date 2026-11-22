@@ -1,7 +1,7 @@
 package tn.reboistn.coordination.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import tn.reboistn.coordination.model.Abonnement;
+import tn.reboistn.coordination.entity.Abonnement;
 
 import java.util.List;
 

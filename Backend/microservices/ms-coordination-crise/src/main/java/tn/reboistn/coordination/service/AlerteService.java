@@ -6,7 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 import tn.reboistn.coordination.client.UserClient;
-import tn.reboistn.coordination.model.*;
+import tn.reboistn.coordination.entity.*;
 import tn.reboistn.coordination.repository.AbonnementRepository;
 import tn.reboistn.coordination.repository.AlerteEmiseRepository;
 import tn.reboistn.coordination.repository.EscaladeRepository;

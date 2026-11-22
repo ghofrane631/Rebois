@@ -13,7 +13,7 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
 import tn.reboistn.coordination.event.FeuConfirme;
 import tn.reboistn.coordination.event.InterventionTerminee;
-import tn.reboistn.coordination.model.AlerteEmise;
+import tn.reboistn.coordination.entity.AlerteEmise;
 import tn.reboistn.coordination.repository.AlerteEmiseRepository;
 import tn.reboistn.coordination.repository.IncidentRepository;
 import tn.reboistn.coordination.service.EscaladeService;

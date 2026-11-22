@@ -1,4 +1,4 @@
-package tn.reboistn.coordination.model;
+package tn.reboistn.coordination.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;

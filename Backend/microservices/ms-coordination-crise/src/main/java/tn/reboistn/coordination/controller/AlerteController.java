@@ -4,8 +4,8 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-import tn.reboistn.coordination.model.AlerteEmise;
-import tn.reboistn.coordination.model.Escalade;
+import tn.reboistn.coordination.entity.AlerteEmise;
+import tn.reboistn.coordination.entity.Escalade;
 import tn.reboistn.coordination.service.AlerteService;
 
 import java.util.List;

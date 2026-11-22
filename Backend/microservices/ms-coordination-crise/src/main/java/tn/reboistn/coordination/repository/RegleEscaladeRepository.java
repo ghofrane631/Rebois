@@ -1,8 +1,8 @@
 package tn.reboistn.coordination.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import tn.reboistn.coordination.model.RegleEscalade;
-import tn.reboistn.coordination.model.TypeAlerte;
+import tn.reboistn.coordination.entity.RegleEscalade;
+import tn.reboistn.coordination.entity.TypeAlerte;
 
 import java.util.Optional;
 

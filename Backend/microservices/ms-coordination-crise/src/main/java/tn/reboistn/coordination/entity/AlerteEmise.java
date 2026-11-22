@@ -1,4 +1,4 @@
-package tn.reboistn.coordination.model;
+package tn.reboistn.coordination.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;

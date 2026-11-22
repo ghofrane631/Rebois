@@ -8,10 +8,10 @@ import tn.reboistn.coordination.event.FeuConfirme;
 import tn.reboistn.coordination.event.MoyensInsuffisants;
 import tn.reboistn.coordination.event.NiveauRisqueChange;
 import tn.reboistn.coordination.event.UtilisateurCree;
-import tn.reboistn.coordination.model.EvenementTraite;
-import tn.reboistn.coordination.model.Incident;
-import tn.reboistn.coordination.model.Niveau;
-import tn.reboistn.coordination.model.SourceAction;
+import tn.reboistn.coordination.entity.EvenementTraite;
+import tn.reboistn.coordination.entity.Incident;
+import tn.reboistn.coordination.entity.Niveau;
+import tn.reboistn.coordination.entity.SourceAction;
 import tn.reboistn.coordination.repository.EvenementTraiteRepository;
 import tn.reboistn.coordination.repository.IncidentRepository;
 

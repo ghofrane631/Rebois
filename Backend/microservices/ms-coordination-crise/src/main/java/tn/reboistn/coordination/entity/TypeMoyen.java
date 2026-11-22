@@ -1,4 +1,4 @@
-package tn.reboistn.coordination.model;
+package tn.reboistn.coordination.entity;
 
 /** Types de moyens de lutte (même liste que ms-ressources). */
 public enum TypeMoyen {

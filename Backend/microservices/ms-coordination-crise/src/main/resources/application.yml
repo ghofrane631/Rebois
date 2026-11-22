@@ -4,6 +4,9 @@ server:
 spring:
   application:
     name: coordination-crise
+  config:
+    # configuration partagee de l'equipe (config-repo) ; le service demarre aussi sans le Config Server
+    import: "optional:configserver:${CONFIG_SERVER_URL:http://localhost:8888}"
   datasource:
     url: jdbc:mysql://${DB_HOST:localhost}:3306/coordination_db?createDatabaseIfNotExist=true
     username: ${DB_USER:root}

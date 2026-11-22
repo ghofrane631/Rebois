@@ -1,8 +1,8 @@
 package tn.reboistn.coordination.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import tn.reboistn.coordination.model.Incident;
-import tn.reboistn.coordination.model.StatutIncident;
+import tn.reboistn.coordination.entity.Incident;
+import tn.reboistn.coordination.entity.StatutIncident;
 
 import java.util.List;
 

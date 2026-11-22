@@ -6,7 +6,7 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import tn.reboistn.coordination.model.RegleEscalade;
+import tn.reboistn.coordination.entity.RegleEscalade;
 import tn.reboistn.coordination.service.EscaladeService;
 
 import java.util.List;

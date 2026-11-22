@@ -1,4 +1,4 @@
-package tn.reboistn.coordination.model;
+package tn.reboistn.coordination.entity;
 
 /** Destinataire d'une escalade quand une alerte reste non lue. */
 public enum CibleEscalade {
