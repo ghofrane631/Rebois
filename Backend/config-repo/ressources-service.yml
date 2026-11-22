@@ -32,14 +32,39 @@ eureka:
   client:
     service-url:
       defaultZone: ${EUREKA_URL:http://localhost:8761/eureka}
+    register-with-eureka: true
+    fetch-registry: true
+    healthcheck:
+      enabled: true          # le statut de /actuator/health est publié dans Eureka
   instance:
     prefer-ip-address: true
+    # Un identifiant par instance : permet de lancer 2 instances (ports différents)
+    instance-id: ${spring.application.name}:${server.port}
 
 management:
   endpoints:
     web:
       exposure:
-        include: health,info
+        include: health,info,metrics
+  endpoint:
+    health:
+      show-details: always
+      probes:
+        enabled: true        # /actuator/health/liveness et /readiness
+  health:
+    rabbit:
+      # Sans RabbitMQ lancé, l'indicateur rabbit est DOWN et healthcheck rendrait
+      # l'instance DOWN dans Eureka (la Gateway ne la proposerait plus).
+      enabled: ${RABBIT_HEALTH:true}
+  info:
+    env:
+      enabled: true
+
+info:
+  application:
+    nom: ressources-service
+    description: Forest Fire Watch - Service 5 Ressources (moyens de lutte)
+    version: 0.0.1
 
 springdoc:
   swagger-ui:

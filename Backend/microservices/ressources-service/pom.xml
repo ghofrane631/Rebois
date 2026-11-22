@@ -71,15 +71,10 @@
             <version>2.6.0</version>
         </dependency>
 
-        <!-- Tests : H2 en mémoire, aucun MySQL ni RabbitMQ nécessaire -->
+        <!-- Tests : base MySQL dédiée ressources_test_db (même connecteur que l'application), sans RabbitMQ -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
             <scope>test</scope>
         </dependency>
     </dependencies>

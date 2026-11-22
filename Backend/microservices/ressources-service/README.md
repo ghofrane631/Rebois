@@ -78,8 +78,9 @@ config-server. Tout le reste (port, MySQL, RabbitMQ, Eureka, règles métier) es
 
 Si RabbitMQ n'est pas lancé, le service démarre quand même. Les erreurs de connexion s'affichent dans les logs, et les événements attendent dans l'outbox.
 
-**Tests** : `mvn test`, ou un clic droit sur `src/test/java` puis **Run 'All Tests'**. Ils utilisent H2 en mémoire
-et n'ont besoin ni de MySQL ni de RabbitMQ.
+**Tests** : `mvn test`, ou un clic droit sur `src/test/java` puis **Run 'All Tests'**. Ils utilisent MySQL
+(XAMPP lancé) sur une base séparée `ressources_test_db`, créée et vidée automatiquement : `ressources_db` n'est jamais touchée.
+RabbitMQ n'est pas nécessaire.
 
 ## Démo pour la validation (avec les données de démo)
 
