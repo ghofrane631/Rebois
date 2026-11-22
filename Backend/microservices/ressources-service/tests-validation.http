@@ -1,0 +1,119 @@
+### =====================================================================
+### Forest Fire Watch - Service Ressources : tests de validation
+### A ouvrir dans IntelliJ (bouton ▶ a cote de chaque requete).
+### Ordre : lancer les requetes de haut en bas, base fraichement remplie
+### (donnees de demo : 10 moyens dans 3 casernes).
+### =====================================================================
+
+@gw = http://localhost:8080
+@svc = http://localhost:8085
+
+### ---------- 1. Infrastructure ----------
+
+### 1.1 Config Server : la config du service est servie (200, JSON avec propertySources)
+GET http://localhost:8888/ressources-service/default
+
+### 1.2 Eureka : RESSOURCES-SERVICE et API-GATEWAY doivent apparaitre (ouvrir aussi http://localhost:8761 dans le navigateur)
+GET http://localhost:8761/eureka/apps
+Accept: application/json
+
+### 1.3 Actuator health : status UP, avec db, rabbit, discoveryComposite, diskSpace
+GET {{svc}}/actuator/health
+
+### 1.4 Actuator info
+GET {{svc}}/actuator/info
+
+### 1.5 Actuator metrics
+GET {{svc}}/actuator/metrics/http.server.requests
+
+### ---------- 2. API REST via la Gateway (passe par Eureka : lb://ressources-service) ----------
+
+### 2.1 Liste des moyens -> 200, 10 moyens
+GET {{gw}}/api/ressources
+
+### 2.2 Filtre gouvernorat + statut -> 200
+GET {{gw}}/api/ressources?gouvernorat=Zaghouan&statut=DISPONIBLE
+
+### 2.3 Detail -> 200
+GET {{gw}}/api/ressources/1
+
+### 2.4 Moyen inconnu -> 404 RESSOURCE_INCONNUE
+GET {{gw}}/api/ressources/999999
+
+### 2.5 Recenser un moyen -> 201
+POST {{gw}}/api/ressources
+Content-Type: application/json
+
+{"type":"HELICOPTERE","uniteId":1,"gouvernorat":"Zaghouan","latitude":36.40,"longitude":10.14}
+
+### 2.6 Requete invalide (latitude manquante) -> 400 REQUETE_INVALIDE
+POST {{gw}}/api/ressources
+Content-Type: application/json
+
+{"type":"HELICOPTERE","uniteId":1,"gouvernorat":"Zaghouan","longitude":10.14}
+
+### 2.7 Type inconnu -> 400
+POST {{gw}}/api/ressources
+Content-Type: application/json
+
+{"type":"AVION","uniteId":1,"gouvernorat":"Zaghouan","latitude":36.40,"longitude":10.14}
+
+### ---------- 3. Regles metier : reservation ----------
+
+### 3.1 Reserver 2 camions pres d'un feu a Zaghouan -> 201, 2 camions de la caserne 1 (la plus proche)
+POST {{gw}}/api/ressources/reservations
+Content-Type: application/json
+
+{"incidentId":5,"type":"CAMION_CITERNE","nombre":2,"lat":36.42,"lng":10.08}
+
+> {% client.global.set("reservationId", response.body.reservations[0].id); %}
+
+### 3.2 Deuxieme incident, 2 camions -> 409 AUCUN_MOYEN_DISPONIBLE
+### (reserve minimale : chaque caserne garde 1 camion ; seul 1 camion de Jendouba est reservable)
+### -> un evenement MoyensInsuffisants est ecrit dans la table outbox_event
+POST {{gw}}/api/ressources/reservations
+Content-Type: application/json
+
+{"incidentId":6,"type":"CAMION_CITERNE","nombre":2,"lat":36.42,"lng":10.08}
+
+### 3.3 Reservations de l'incident 5 -> 200, 2 reservations ACTIVE
+GET {{gw}}/api/ressources/reservations?incidentId=5
+
+### 3.4 Un moyen reserve ne peut pas partir en maintenance -> 409 RESSOURCE_DEJA_RESERVEE
+### (remplacer 1 par l'id d'un camion renvoye en 3.1 si besoin)
+PATCH {{gw}}/api/ressources/1/statut
+Content-Type: application/json
+
+{"statut":"EN_MAINTENANCE"}
+
+### 3.5 Le statut RESERVEE ne se pose pas a la main -> 409 TRANSITION_INVALIDE
+PATCH {{gw}}/api/ressources/10/statut
+Content-Type: application/json
+
+{"statut":"RESERVEE"}
+
+### 3.6 Liberer une reservation -> 204 ; le camion redevient DISPONIBLE
+DELETE {{gw}}/api/ressources/reservations/{{reservationId}}
+
+### 3.7 Liberer une 2e fois -> 204 (idempotent)
+DELETE {{gw}}/api/ressources/reservations/{{reservationId}}
+
+### 3.8 Reservation inconnue -> 404 RESERVATION_INCONNUE
+DELETE {{gw}}/api/ressources/reservations/999999
+
+### 3.9 Maintenance d'un moyen libre -> 200 EN_MAINTENANCE, puis retour DISPONIBLE
+PATCH {{gw}}/api/ressources/10/statut
+Content-Type: application/json
+
+{"statut":"EN_MAINTENANCE"}
+
+###
+PATCH {{gw}}/api/ressources/10/statut
+Content-Type: application/json
+
+{"statut":"DISPONIBLE"}
+
+### ---------- 4. Verification apres les evenements RabbitMQ (voir procedure) ----------
+
+### 4.1 Apres InterventionTerminee pour l'incident 5 : plus aucune reservation ACTIVE
+GET {{gw}}/api/ressources/reservations?incidentId=5

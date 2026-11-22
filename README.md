@@ -524,6 +524,23 @@ sequenceDiagram
 > 💡 Les bases sont créées automatiquement au premier démarrage (`createDatabaseIfNotExist=true`).
 > Avec un autre mot de passe MySQL, définir les variables d'environnement `DB_USER` et `DB_PASSWORD`.
 
+### 📇 Eureka : services enregistrés
+
+Tableau de bord Eureka (http://localhost:8761) avec la Gateway et **deux instances** du service Ressources (ports 8085 et 8095) :
+
+![Dashboard Eureka](Documentation/Captures/eureka-dashboard.png)
+
+Deuxième instance d'un service :
+
+```powershell
+cd Backend/microservices/ressources-service
+mvn spring-boot:run "-Dspring-boot.run.arguments=--server.port=8095"
+```
+
+Démarrage automatique de l'infrastructure et du service Ressources : `Backend/demarrer.ps1`.
+
+Vérification rapide de l'infrastructure (Config Server, Eureka, Actuator, Gateway) : `Backend/microservices/ressources-service/verifier.ps1`.
+
 ### 🐳 Avec Docker
 
 ```bash

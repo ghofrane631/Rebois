@@ -1,4 +1,5 @@
-# Configuration des tests : H2 en mémoire, sans Eureka, Config Server ni RabbitMQ.
+# Configuration des tests : MySQL (base séparée ressources_test_db), sans Eureka, Config Server ni RabbitMQ.
+# La base de test est recréée à chaque lancement : les données de ressources_db ne sont jamais touchées.
 spring:
   application:
     name: ressources-service
@@ -8,9 +9,9 @@ spring:
       import-check:
         enabled: false
   datasource:
-    url: jdbc:h2:mem:ressources_test;MODE=MySQL;DB_CLOSE_DELAY=-1
-    username: sa
-    password:
+    url: jdbc:mysql://${DB_HOST:localhost}:${DB_PORT:3306}/ressources_test_db?createDatabaseIfNotExist=true&serverTimezone=UTC
+    username: ${DB_USER:root}
+    password: ${DB_PASSWORD:}
   jpa:
     hibernate:
       ddl-auto: create-drop
