@@ -10,4 +10,4 @@ spring:
     config:
       server:
         native:
-          search-locations: ${CONFIG_REPO:file:./config-repo/,file:../config-repo/}   # racine ou dossier config-server
+          search-locations: ${CONFIG_REPO_PATH:file:./config-repo/,file:../config-repo/}   # racine ou dossier config-server
