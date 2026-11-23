@@ -101,8 +101,8 @@ Synchrone (OpenFeign) : quand la réponse est nécessaire pour continuer.
 
 | Service appelé | Donnée | Si le service est indisponible |
 |---|---|---|
-| ms-ressources | réservation des moyens les plus proches | incident en `MOYENS_A_AFFECTER`, réservation à relancer (503) |
-| ms-signalement | position du feu si elle manque | incident ouvert sans position, en `MOYENS_A_AFFECTER` |
+| ressources-service | réservation des moyens les plus proches | incident en `MOYENS_A_AFFECTER`, réservation à relancer (503) |
+| signalement | position du feu si elle manque | incident ouvert sans position, en `MOYENS_A_AFFECTER` |
 | ms-user | utilisateurs de la zone à alerter | seuls les abonnés locaux sont alertés |
 
 Asynchrone (RabbitMQ, exchange `ffw.events`) : pour informer sans attendre de réponse.
