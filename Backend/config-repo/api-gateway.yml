@@ -1,0 +1,48 @@
+server:
+  port: 8080
+
+eureka:
+  client:
+    service-url:
+      defaultZone: ${EUREKA_URL:http://localhost:8761/eureka}
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        # Service 5 : Ressources
+        - id: ressources-service
+          uri: lb://ressources-service
+          predicates:
+            - Path=/api/ressources/**
+
+        # Service 2 : Signalement
+        - id: signalement
+          uri: lb://signalement
+          predicates:
+            - Path=/api/signalements/**
+
+        # Service 3 : Risque
+        - id: ms-risque
+          uri: lb://ms-risque
+          predicates:
+            - Path=/api/risque/**
+
+        # Ajouter ici les routes des autres services de l'équipe, par exemple :
+        # - id: foret-service
+        #   uri: lb://foret-service
+        #   predicates:
+        #     - Path=/api/forets/**, /api/secteurs/**
+
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowed-origins: "http://localhost:4200"
+            allowed-methods: "*"
+            allowed-headers: "*"
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,gateway

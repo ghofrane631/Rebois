@@ -1,0 +1,32 @@
+# Configuration des tests : MySQL (base séparée ressources_test_db), sans Eureka, Config Server ni RabbitMQ.
+# La base de test est recréée à chaque lancement : les données de ressources_db ne sont jamais touchées.
+spring:
+  application:
+    name: ressources-service
+  cloud:
+    config:
+      enabled: false
+      import-check:
+        enabled: false
+  datasource:
+    url: jdbc:mysql://${DB_HOST:localhost}:${DB_PORT:3306}/ressources_test_db?createDatabaseIfNotExist=true&serverTimezone=UTC
+    username: ${DB_USER:root}
+    password: ${DB_PASSWORD:}
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    open-in-view: false
+  rabbitmq:
+    listener:
+      simple:
+        auto-startup: false
+
+eureka:
+  client:
+    enabled: false
+
+ressources:
+  reserve-minimale-camions: 1
+  donnees-demo: false
+  outbox:
+    publisher-enabled: false
