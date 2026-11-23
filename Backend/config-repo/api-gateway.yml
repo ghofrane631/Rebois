@@ -28,6 +28,12 @@ spring:
           predicates:
             - Path=/api/risque/**
 
+        # Service 4 : Coordination de crise
+        - id: coordination-crise
+          uri: lb://coordination-crise
+          predicates:
+            - Path=/api/incidents/**, /api/alertes/**, /api/abonnements/**, /api/regles-escalade/**
+
         # Ajouter ici les routes des autres services de l'équipe, par exemple :
         # - id: foret-service
         #   uri: lb://foret-service

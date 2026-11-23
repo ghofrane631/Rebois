@@ -1,0 +1,106 @@
+server:
+  port: ${SERVER_PORT:8088}   # une 2e instance : SERVER_PORT=8098
+
+spring:
+  application:
+    name: coordination-crise
+  config:
+    # configuration partagee de l'equipe (config-repo) ; le service demarre aussi sans le Config Server
+    import: "optional:configserver:${CONFIG_SERVER_URL:http://localhost:8888}"
+  datasource:
+    url: jdbc:mysql://${DB_HOST:localhost}:3306/coordination_db?createDatabaseIfNotExist=true
+    username: ${DB_USER:root}
+    password: ${DB_PASSWORD:}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+  rabbitmq:
+    host: ${RABBIT_HOST:localhost}
+    port: ${RABBIT_PORT:5672}
+    username: ${RABBIT_USER:guest}
+    password: ${RABBIT_PASSWORD:guest}
+    connection-timeout: 2s
+    listener:
+      simple:
+        default-requeue-rejected: false   # après les essais, le message part en dead-letter
+        retry:
+          enabled: true
+          max-attempts: 3
+          initial-interval: 1s
+          multiplier: 2
+  cloud:
+    openfeign:
+      client:
+        config:
+          default:
+            connect-timeout: 2000
+            read-timeout: 3000
+
+eureka:
+  client:
+    service-url:
+      defaultZone: ${EUREKA_URL:http://localhost:8761/eureka}
+    register-with-eureka: true
+    fetch-registry: true
+    # Eureka reçoit le statut de /actuator/health : si MySQL tombe, l'instance passe DOWN
+    healthcheck:
+      enabled: true
+  instance:
+    prefer-ip-address: true
+    # un identifiant par instance, pour voir plusieurs instances (ports différents) dans le dashboard
+    instance-id: ${spring.application.name}:${server.port}
+
+# Noms Eureka des services appelés par OpenFeign
+clients:
+  signalement: ${SIGNALEMENT_SERVICE:signalement}
+  ressources: ${RESSOURCES_SERVICE:ressources-service}
+  user: ${USER_SERVICE:ms-user}
+
+# RabbitMQ : exchange commun et clés de routage (une clé par type d'événement)
+evenements:
+  exchange: ${EVENTS_EXCHANGE:ffw.events}
+  dead-letter-exchange: ${EVENTS_DLX:ffw.events.dlx}
+  cles:
+    feu-confirme: FeuConfirme
+    niveau-risque-change: NiveauRisqueChange
+    moyens-insuffisants: MoyensInsuffisants
+    utilisateur-cree: UtilisateurCree
+    intervention-terminee: InterventionTerminee
+
+# Moyens réservés automatiquement à l'ouverture d'un incident
+incident:
+  moyens-initiaux:
+    type: CAMION_CITERNE
+    nombre: 2
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,loggers
+  endpoint:
+    health:
+      show-details: always   # détail des composants : db, diskSpace, ping, ressources…
+  health:
+    # RabbitMQ n'est pas lancé en local : sans cette option, le service serait DOWN dans Eureka
+    # pour une raison qui ne l'empêche pas de fonctionner. À activer quand RabbitMQ tourne.
+    rabbit:
+      enabled: ${RABBIT_HEALTH:false}
+  info:
+    env:
+      enabled: true
+
+# Contenu de /actuator/info (le lien de l'instance dans le dashboard Eureka y mène)
+info:
+  app:
+    name: coordination-crise
+    version: 1.0.0
+    description: Microservice de coordination de crise (incidents, moyens engages, alertes, escalade)
+    team: Forest Fire Watch - 4SSA1
+    responsable: Mezen Elghoul
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
