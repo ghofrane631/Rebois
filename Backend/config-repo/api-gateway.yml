@@ -1,6 +1,5 @@
 server:
-  port: 8080
-
+  port: ${GATEWAY_PORT:8080}
 eureka:
   client:
     service-url:
@@ -28,7 +27,13 @@ spring:
           predicates:
             - Path=/api/risque/**
 
-        # Ajouter ici les routes des autres services de l'équipe, par exemple :
+        # Service Foret (zones, regions, delegations)
+        - id: foret-service
+          uri: lb://FORET-SERVICE
+          predicates:
+            - Path=/api/zones/**, /api/regions/**, /api/delegations/**
+
+        # Ajouter ici les routes des autres services de l'ÃƒÂ©quipe, par exemple :
         # - id: foret-service
         #   uri: lb://foret-service
         #   predicates:
