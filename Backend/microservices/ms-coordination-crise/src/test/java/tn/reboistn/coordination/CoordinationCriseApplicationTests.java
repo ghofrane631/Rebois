@@ -122,7 +122,7 @@ class CoordinationCriseApplicationTests {
         mvc.perform(get("/api/incidents/" + id))
                 .andExpect(jsonPath("$.incident.statut").value("CLOS"))
                 .andExpect(jsonPath("$.bilan.surfaceBruleeHa").value(12.5));
-        verify(rabbitTemplate).convertAndSend(eq("ffw.events"), eq("InterventionTerminee"), any(InterventionTerminee.class));
+        verify(rabbitTemplate).convertAndSend(eq("ffw.events"), eq("intervention.terminee"), any(InterventionTerminee.class));
     }
 
     @Test
@@ -172,6 +172,11 @@ class CoordinationCriseApplicationTests {
                 .andExpect(jsonPath("$.components.db.status").value("UP"))
                 .andExpect(jsonPath("$.components.ressources.status").value("UP"))
                 .andExpect(jsonPath("$.components.ressources.details.instances").value(0));
+        mvc.perform(get("/actuator/health/liveness"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.status").value("UP"));
+        mvc.perform(get("/actuator/health/readiness"))
+                .andExpect(status().isOk());
     }
 
     @Test

@@ -107,13 +107,13 @@ Synchrone (OpenFeign) : quand la réponse est nécessaire pour continuer.
 
 Asynchrone (RabbitMQ, exchange `ffw.events`) : pour informer sans attendre de réponse.
 
-| Événement | Sens | Effet |
-|---|---|---|
-| `FeuConfirme` | consommé | ouvre un incident |
-| `NiveauRisqueChange` | consommé | alerte de vigilance à partir de `ELEVE` |
-| `MoyensInsuffisants` | consommé | alerte régionale par SMS |
-| `UtilisateurCree` | consommé | abonnement par défaut à la zone |
-| `InterventionTerminee` | publié | à la clôture, vers Forêt, Signalement, Risque, Ressources, Restauration |
+| Événement | Clé de routage | Sens | Effet |
+|---|---|---|---|
+| `FeuConfirme` | `feu.confirme` | consommé | ouvre un incident |
+| `NiveauRisqueChange` | `risque.niveau.change` | consommé | alerte de vigilance à partir de `ELEVE` |
+| `MoyensInsuffisants` | `moyens.insuffisants` | consommé | alerte régionale par SMS |
+| `UtilisateurCree` | `utilisateur.cree` | consommé | abonnement par défaut à la zone |
+| `InterventionTerminee` | `intervention.terminee` | publié | à la clôture, vers Forêt, Signalement, Risque, Ressources, Restauration |
 
 Chaque événement consommé est traité une seule fois (eventId enregistré). Un message en échec après
 3 essais part dans la file `coordination.dlq`.
@@ -125,6 +125,7 @@ avec un identifiant par instance (`coordination-crise:8088`, `coordination-crise
 
 | Endpoint | Contenu |
 |---|---|
+| `/actuator/health/liveness`, `/actuator/health/readiness` | le service est-il vivant ? prêt à recevoir du trafic ? |
 | `/actuator/health` | statut global et détail des composants : `db` (MySQL), `diskSpace`, `ping`, `discoveryComposite`, `ressources` |
 | `/actuator/info` | nom, version, description, équipe (le lien de l'instance dans le dashboard Eureka y mène) |
 | `/actuator/metrics` | métriques JVM et HTTP, ex. `/actuator/metrics/http.server.requests` |

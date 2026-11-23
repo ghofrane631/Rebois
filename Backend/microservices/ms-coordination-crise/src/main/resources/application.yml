@@ -62,12 +62,12 @@ clients:
 evenements:
   exchange: ${EVENTS_EXCHANGE:ffw.events}
   dead-letter-exchange: ${EVENTS_DLX:ffw.events.dlx}
-  cles:
-    feu-confirme: FeuConfirme
-    niveau-risque-change: NiveauRisqueChange
-    moyens-insuffisants: MoyensInsuffisants
-    utilisateur-cree: UtilisateurCree
-    intervention-terminee: InterventionTerminee
+  cles:                      # même format que Signalement et Risque
+    feu-confirme: feu.confirme
+    niveau-risque-change: risque.niveau.change
+    moyens-insuffisants: moyens.insuffisants
+    utilisateur-cree: utilisateur.cree
+    intervention-terminee: intervention.terminee
 
 # Moyens réservés automatiquement à l'ouverture d'un incident
 incident:
@@ -83,6 +83,8 @@ management:
   endpoint:
     health:
       show-details: always   # détail des composants : db, diskSpace, ping, ressources…
+      probes:
+        enabled: true          # /actuator/health/liveness et /actuator/health/readiness
   health:
     # RabbitMQ n'est pas lancé en local : sans cette option, le service serait DOWN dans Eureka
     # pour une raison qui ne l'empêche pas de fonctionner. À activer quand RabbitMQ tourne.
